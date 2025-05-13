@@ -283,15 +283,16 @@ export function FileTree({
       <div key={node.item.path} className='select-none'>
         <div
           className={cn(
-            'flex items-center gap-2 py-1 px-1 hover:bg-muted cursor-pointer',
+            'flex items-center gap-2 py-1 px-1 hover:bg-muted cursor-pointer rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
             level > 0 && 'ml-6',
           )}
           onClick={() => toggleNode(node)}
+          tabIndex={0}
         >
           {node.item.is_dir && (
             <button
               type='button'
-              className='w-5 h-5 flex items-center justify-center text-muted-foreground'
+              className='w-5 h-5 flex items-center justify-center text-muted-foreground outline-none focus:outline-none'
               aria-label={`Toggle ${node.item.name}`}
               onClick={e => {
                 e.stopPropagation() // Prevent checkbox toggle
@@ -314,7 +315,7 @@ export function FileTree({
 
           <div
             className={cn(
-              'w-4 h-4 border rounded-sm flex items-center justify-center',
+              'w-4 h-4 border rounded-sm flex items-center justify-center outline-none',
               node.selected
                 ? 'bg-primary border-primary'
                 : 'border-input bg-background',
