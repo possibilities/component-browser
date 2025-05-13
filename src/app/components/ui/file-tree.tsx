@@ -38,14 +38,10 @@ export function FileTree({
   const [prevSelectedPaths, setPrevSelectedPaths] =
     useState<string[]>(selectedFiles)
 
-  // Initialize all folders as expanded
+  // Initialize all folders as collapsed by default
   useEffect(() => {
-    if (files) {
-      const folderPaths = files
-        .filter(file => file.is_dir)
-        .map(file => file.path)
-      setExpandedFolders(new Set(folderPaths))
-    }
+    // Empty set means all folders are collapsed
+    setExpandedFolders(new Set())
   }, [files])
 
   // Update node states (selected and indeterminate)
