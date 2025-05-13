@@ -274,7 +274,7 @@ export function FileTree({
       <div key={node.item.path} className='select-none'>
         <div
           className={cn(
-            'flex items-center gap-2 py-1 px-1 hover:bg-muted cursor-pointer rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
+            'flex items-center gap-2 py-1 px-1 hover:bg-muted cursor-pointer rounded-md outline-none',
             level > 0 && 'ml-6',
           )}
           onClick={() => toggleNode(node)}
