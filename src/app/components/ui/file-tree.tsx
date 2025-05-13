@@ -119,6 +119,25 @@ export function FileTree({
       // Update selection and indeterminate states
       updateNodeStates(root)
 
+      // Sort children alphabetically for each node
+      const sortNodesAlphabetically = (node: TreeNode) => {
+        // Sort directories first, then files, both alphabetically by name
+        node.children.sort((a, b) => {
+          // If one is a directory and the other is not, directories come first
+          if (a.item.is_dir && !b.item.is_dir) return -1
+          if (!a.item.is_dir && b.item.is_dir) return 1
+
+          // Otherwise sort alphabetically by name
+          return a.item.name.localeCompare(b.item.name)
+        })
+
+        // Recursively sort children
+        node.children.forEach(sortNodesAlphabetically)
+      }
+
+      // Apply sorting to the tree
+      sortNodesAlphabetically(root)
+
       return root
     }
 
