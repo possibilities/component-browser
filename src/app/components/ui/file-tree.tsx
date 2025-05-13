@@ -282,16 +282,20 @@ export function FileTree({
       <div key={node.item.path} className='select-none'>
         <div
           className={cn(
-            'flex items-center gap-2 py-1 px-1 hover:bg-muted',
+            'flex items-center gap-2 py-1 px-1 hover:bg-muted cursor-pointer',
             level > 0 && 'ml-6',
           )}
+          onClick={() => toggleNode(node)}
         >
           {node.item.is_dir && (
             <button
               type='button'
               className='w-5 h-5 flex items-center justify-center text-muted-foreground'
               aria-label={`Toggle ${node.item.name}`}
-              onClick={e => toggleFolderExpansion(node.item.path, e)}
+              onClick={e => {
+                e.stopPropagation() // Prevent checkbox toggle
+                toggleFolderExpansion(node.item.path, e)
+              }}
             >
               {node.children.length > 0 ? (
                 isExpanded ? (
@@ -315,7 +319,6 @@ export function FileTree({
                 : 'border-input bg-background',
               node.indeterminate && 'bg-primary border-primary',
             )}
-            onClick={() => toggleNode(node)}
           >
             {node.selected && !node.indeterminate && (
               <Check className='h-3 w-3 text-primary-foreground' />
