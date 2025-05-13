@@ -167,7 +167,8 @@ export function FileTree({
 
   // Toggle selection of a node
   const toggleNode = (node: TreeNode) => {
-    const newSelected = !node.selected
+    // When a node is in indeterminate state, always deselect it
+    const newSelected = node.indeterminate ? false : !node.selected
 
     // Update this node and all its children
     const updateSelection = (n: TreeNode) => {
