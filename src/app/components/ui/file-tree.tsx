@@ -17,7 +17,6 @@ type FileItem = {
 type FileTreeProps = {
   files: FileItem[]
   selectedFiles?: string[]
-  onFilesChange?: (files: FileItem[]) => void
   onSelectedFilesChange?: (selectedFiles: string[]) => void
   className?: string
 }
@@ -33,7 +32,6 @@ type TreeNode = {
 export function FileTree({
   files,
   selectedFiles = [],
-  onFilesChange,
   onSelectedFilesChange,
   className,
 }: FileTreeProps) {
@@ -200,12 +198,6 @@ export function FileTree({
     // Create a new tree to trigger re-render
     setTree({ ...tree! })
 
-    // Notify parent component of changes
-    if (onFilesChange) {
-      const updatedFiles = extractFilesFromTree(tree!)
-      onFilesChange(updatedFiles)
-    }
-
     // Call onSelectedFilesChange with updated selected files
     if (onSelectedFilesChange) {
       const selectedPaths = getSelectedPaths(tree!)
@@ -350,12 +342,8 @@ export function FileTree({
   }
 
   if (!tree) {
-    return <div>Loading...</div>
+    return null
   }
 
-  return (
-    <div className={cn('max-h-[600px] overflow-auto', className)}>
-      {renderNode(tree)}
-    </div>
-  )
+  return renderNode(tree)
 }
