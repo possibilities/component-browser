@@ -3,8 +3,8 @@ import { ThemeProvider } from '@/lib/theme-provider'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Arthack NextJs Template',
-  description: 'A minimal NextJs template',
+  title: 'Kit UI',
+  description: 'Kit UI',
 }
 
 export default function RootLayout({

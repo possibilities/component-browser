@@ -2,7 +2,7 @@
 
 import type React from 'react'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { Check, ChevronDown, ChevronRight, File, Folder } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -17,8 +17,7 @@ type FileItem = {
 type FileTreeProps = {
   files: FileItem[]
   selectedFiles?: string[]
-  onSelectedFilesChange?: (selectedFiles: string[]) => void
-  className?: string
+  onSelectedFilesChange?: (addedFiles: string[], removedFiles: string[]) => void
 }
 
 type TreeNode = {
@@ -33,10 +32,11 @@ export function FileTree({
   files,
   selectedFiles = [],
   onSelectedFilesChange,
-  className,
 }: FileTreeProps) {
   const [tree, setTree] = useState<TreeNode | null>(null)
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set())
+  const [prevSelectedPaths, setPrevSelectedPaths] =
+    useState<string[]>(selectedFiles)
 
   // Initialize all folders as expanded
   useEffect(() => {
@@ -47,6 +47,28 @@ export function FileTree({
       setExpandedFolders(new Set(folderPaths))
     }
   }, [files])
+
+  // Update node states (selected and indeterminate)
+  const updateNodeStates = useCallback(function processNode(node: TreeNode): {
+    selected: number
+    total: number
+  } {
+    if (node.children.length === 0) {
+      // Leaf node
+      return { selected: node.selected ? 1 : 0, total: 1 }
+    }
+
+    // Process children first (use named function for recursion)
+    const counts = node.children.map(processNode)
+    const selectedCount = counts.reduce((sum, count) => sum + count.selected, 0)
+    const totalCount = counts.reduce((sum, count) => sum + count.total, 0)
+
+    // Update this node's state
+    node.selected = selectedCount === totalCount && totalCount > 0
+    node.indeterminate = selectedCount > 0 && selectedCount < totalCount
+
+    return { selected: selectedCount, total: totalCount }
+  }, [])
 
   // Build tree from flat file list and apply selection state
   useEffect(() => {
@@ -140,28 +162,7 @@ export function FileTree({
     }
 
     setTree(buildTree())
-  }, [files, selectedFiles])
-
-  // Update node states (selected and indeterminate)
-  const updateNodeStates = (
-    node: TreeNode,
-  ): { selected: number; total: number } => {
-    if (node.children.length === 0) {
-      // Leaf node
-      return { selected: node.selected ? 1 : 0, total: 1 }
-    }
-
-    // Process children first
-    const counts = node.children.map(updateNodeStates)
-    const selectedCount = counts.reduce((sum, count) => sum + count.selected, 0)
-    const totalCount = counts.reduce((sum, count) => sum + count.total, 0)
-
-    // Update this node's state
-    node.selected = selectedCount === totalCount && totalCount > 0
-    node.indeterminate = selectedCount > 0 && selectedCount < totalCount
-
-    return { selected: selectedCount, total: totalCount }
-  }
+  }, [files, selectedFiles, updateNodeStates])
 
   // Toggle selection of a node
   const toggleNode = (node: TreeNode) => {
@@ -198,10 +199,27 @@ export function FileTree({
     // Create a new tree to trigger re-render
     setTree({ ...tree! })
 
-    // Call onSelectedFilesChange with updated selected files
+    // Call onSelectedFilesChange with added and removed files
     if (onSelectedFilesChange) {
-      const selectedPaths = getSelectedPaths(tree!)
-      onSelectedFilesChange(selectedPaths)
+      const currentSelectedPaths = getSelectedPaths(tree!)
+
+      // Find newly added files (present in current but not in previous)
+      const addedFiles = currentSelectedPaths.filter(
+        path => !prevSelectedPaths.includes(path),
+      )
+
+      // Find newly removed files (present in previous but not in current)
+      const removedFiles = prevSelectedPaths.filter(
+        path => !currentSelectedPaths.includes(path),
+      )
+
+      // Update previous selected paths for next comparison
+      setPrevSelectedPaths(currentSelectedPaths)
+
+      // Only call if there are changes
+      if (addedFiles.length > 0 || removedFiles.length > 0) {
+        onSelectedFilesChange(addedFiles, removedFiles)
+      }
     }
   }
 
@@ -235,25 +253,6 @@ export function FileTree({
     }
 
     setExpandedFolders(newExpandedFolders)
-  }
-
-  // Extract flat file list from tree
-  const extractFilesFromTree = (node: TreeNode): FileItem[] => {
-    let result: FileItem[] = []
-
-    if (node.item.path) {
-      // Skip root
-      result.push({
-        ...node.item,
-        selected: node.selected,
-      })
-    }
-
-    node.children.forEach(child => {
-      result = result.concat(extractFilesFromTree(child))
-    })
-
-    return result
   }
 
   // Render a node and its children
