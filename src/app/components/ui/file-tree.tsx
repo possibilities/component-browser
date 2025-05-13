@@ -17,7 +17,7 @@ type FileItem = {
 type FileTreeProps = {
   files: FileItem[]
   selectedFiles?: string[]
-  onSelectedFilesChange?: (addedFiles: string[], removedFiles: string[]) => void
+  onSelectionChange?: (addedFiles: string[], removedFiles: string[]) => void
 }
 
 type TreeNode = {
@@ -31,11 +31,11 @@ type TreeNode = {
 export function FileTree({
   files,
   selectedFiles = [],
-  onSelectedFilesChange,
+  onSelectionChange,
 }: FileTreeProps) {
   const [tree, setTree] = useState<TreeNode | null>(null)
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set())
-  const [prevSelectedPaths, setPrevSelectedPaths] =
+  const [prevSelectedFiles, setPrevSelectedFiles] =
     useState<string[]>(selectedFiles)
 
   // Initialize all folders as collapsed by default
@@ -195,45 +195,45 @@ export function FileTree({
     // Create a new tree to trigger re-render
     setTree({ ...tree! })
 
-    // Call onSelectedFilesChange with added and removed files
-    if (onSelectedFilesChange) {
-      const currentSelectedPaths = getSelectedPaths(tree!)
+    // Call onSelectionChange with added and removed files
+    if (onSelectionChange) {
+      const currentSelectedFiles = getSelectedFiles(tree!)
 
       // Find newly added files (present in current but not in previous)
-      const addedFiles = currentSelectedPaths.filter(
-        path => !prevSelectedPaths.includes(path),
+      const addedFiles = currentSelectedFiles.filter(
+        path => !prevSelectedFiles.includes(path),
       )
 
       // Find newly removed files (present in previous but not in current)
-      const removedFiles = prevSelectedPaths.filter(
-        path => !currentSelectedPaths.includes(path),
+      const removedFiles = prevSelectedFiles.filter(
+        path => !currentSelectedFiles.includes(path),
       )
 
-      // Update previous selected paths for next comparison
-      setPrevSelectedPaths(currentSelectedPaths)
+      // Update previous selected files for next comparison
+      setPrevSelectedFiles(currentSelectedFiles)
 
       // Only call if there are changes
       if (addedFiles.length > 0 || removedFiles.length > 0) {
-        onSelectedFilesChange(addedFiles, removedFiles)
+        onSelectionChange(addedFiles, removedFiles)
       }
     }
   }
 
-  // Get all selected file paths from the tree
-  const getSelectedPaths = (node: TreeNode): string[] => {
-    let selectedPaths: string[] = []
+  // Get all selected files from the tree
+  const getSelectedFiles = (node: TreeNode): string[] => {
+    let selectedFiles: string[] = []
 
     // Only include non-directory items in the selection list
     if (node.item.path && node.selected && !node.item.is_dir) {
-      selectedPaths.push(node.item.path)
+      selectedFiles.push(node.item.path)
     }
 
     // Include selected files from children
     node.children.forEach(child => {
-      selectedPaths = selectedPaths.concat(getSelectedPaths(child))
+      selectedFiles = selectedFiles.concat(getSelectedFiles(child))
     })
 
-    return selectedPaths
+    return selectedFiles
   }
 
   // Toggle folder expansion

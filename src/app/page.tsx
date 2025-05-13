@@ -51,7 +51,7 @@ export default async function Home() {
     <FileTree
       files={files}
       selectedFiles={[]}
-      onSelectedFilesChange={handleSelectionChange}
+      onSelectionChange={handleSelectionChange}
     />
   )
 }
