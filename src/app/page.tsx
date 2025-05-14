@@ -3,6 +3,7 @@
 import { FileTree } from '@/app/components/ui/file-tree'
 import { FileCard } from '@/app/components/ui/file-card'
 import { Textarea } from '@/app/components/ui/textarea'
+import { CopyButton } from '@/app/components/ui/copy-button'
 import { exec } from 'child_process'
 import { promisify } from 'util'
 
@@ -60,7 +61,7 @@ export default async function Home() {
   const files = await getFileTree('https://github.com/possibilities/dotfiles')
 
   return (
-    <div className='flex h-screen w-full'>
+    <div className='flex h-screen w-full relative'>
       <div className='w-1/4 h-full overflow-y-auto overflow-x-clip border-r border-[var(--border)] p-4'>
         <div className='w-full'>
           <FileTree
@@ -76,7 +77,7 @@ export default async function Home() {
         <div className='h-2/5 border-b border-[var(--border)] p-4'>
           <Textarea
             className='w-full h-full resize-none'
-            placeholder='Enter text here...'
+            placeholder='Describe your changes...'
           />
         </div>
 
@@ -120,6 +121,9 @@ export default async function Home() {
           </div>
         </div>
       </div>
+      
+      {/* Copy Prompt button in lower right corner */}
+      <CopyButton className='absolute bottom-4 right-4' />
     </div>
   )
 }
