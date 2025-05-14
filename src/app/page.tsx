@@ -62,7 +62,7 @@ export default async function Home() {
   return (
     <div className='flex h-screen w-full'>
       {/* Left panel - File Tree (25% width) */}
-      <div className='w-1/4 h-full overflow-y-auto overflow-x-hidden border-r border-[var(--border)]'>
+      <div className='w-1/4 h-full overflow-y-auto overflow-x-hidden border-r border-[var(--border)] p-4'>
         <FileTree
           files={files}
           selectedFiles={[]}

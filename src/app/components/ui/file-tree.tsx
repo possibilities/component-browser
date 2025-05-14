@@ -281,7 +281,7 @@ export function FileTree({
       <div key={node.item.path} className='select-none'>
         <div
           className={
-            'flex items-center py-1 px-1 hover:bg-muted rounded-md outline-none overflow-hidden'
+            'flex items-center py-1 px-1 rounded-md outline-none overflow-hidden'
           }
           tabIndex={0}
         >
@@ -307,7 +307,7 @@ export function FileTree({
             )}
           </div>
 
-          <div className='flex items-center gap-2'>
+          <div className='flex items-center gap-1'>
             {/* Checkbox - fixed width/height */}
             <div
               className='w-5 flex justify-center flex-shrink-0 cursor-pointer'
@@ -319,6 +319,7 @@ export function FileTree({
                   node.selected
                     ? 'bg-primary border-primary'
                     : 'border-input bg-background',
+                  node.selected || 'hover:bg-muted',
                   node.indeterminate && 'bg-primary border-primary',
                 )}
               >
@@ -331,13 +332,15 @@ export function FileTree({
               </div>
             </div>
 
-            {/* Icon and filename */}
-            {node.item.is_dir ? (
-              <Folder className='h-4 w-5 flex-shrink-0 text-muted-foreground' />
-            ) : (
-              <File className='h-4 w-5 flex-shrink-0 text-muted-foreground' />
-            )}
-            <span className='truncate'>{node.item.name}</span>
+            <div className='flex items-center gap-2 pl-1 px-2 hover:bg-muted'>
+              {/* Icon and filename */}
+              {node.item.is_dir ? (
+                <Folder className='h-4 w-5 flex-shrink-0 text-muted-foreground' />
+              ) : (
+                <File className='h-4 w-5 flex-shrink-0 text-muted-foreground' />
+              )}
+              <span className='truncate'>{node.item.name}</span>
+            </div>
           </div>
         </div>
 
