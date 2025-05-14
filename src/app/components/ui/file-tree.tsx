@@ -280,11 +280,11 @@ export function FileTree({
     return (
       <div key={node.item.path} className='select-none'>
         <div
-          className={'flex items-center py-1 px-1 rounded-md outline-none'}
+          className={'flex items-center py-1 px-1 rounded-md outline-none max-w-full'}
           tabIndex={0}
         >
           {/* Caret - fixed width */}
-          <div className='w-5 mr-2 flex-shrink-0 flex items-center justify-center'>
+          <div className='w-5 mr-1 flex-shrink-0 flex items-center justify-center'>
             {node.item.is_dir && (
               <button
                 type='button'
@@ -305,40 +305,38 @@ export function FileTree({
             )}
           </div>
 
-          <div className='flex items-center gap-1'>
-            {/* Checkbox - fixed width/height */}
+          {/* Checkbox - fixed width/height */}
+          <div
+            className='w-5 mr-1 flex-shrink-0 flex justify-center cursor-pointer'
+            onClick={() => toggleNode(node)}
+          >
             <div
-              className='w-5 flex justify-center flex-shrink-0 cursor-pointer'
-              onClick={() => toggleNode(node)}
-            >
-              <div
-                className={cn(
-                  'w-4 h-4 min-w-[16px] min-h-[16px] border rounded-sm flex items-center justify-center outline-none',
-                  node.selected
-                    ? 'bg-primary border-primary'
-                    : 'border-input bg-background',
-                  node.selected || 'hover:bg-muted',
-                  node.indeterminate && 'bg-primary border-primary',
-                )}
-              >
-                {node.selected && !node.indeterminate && (
-                  <Check className='h-3 w-3 text-primary-foreground' />
-                )}
-                {node.indeterminate && (
-                  <div className='w-2 h-px bg-primary-foreground' />
-                )}
-              </div>
-            </div>
-
-            <div className='flex items-center gap-2 pl-1 px-2 hover:bg-muted'>
-              {/* Icon and filename */}
-              {node.item.is_dir ? (
-                <Folder className='h-4 w-5 flex-shrink-0 text-muted-foreground' />
-              ) : (
-                <File className='h-4 w-5 flex-shrink-0 text-muted-foreground' />
+              className={cn(
+                'w-4 h-4 min-w-[16px] min-h-[16px] border rounded-sm flex items-center justify-center outline-none',
+                node.selected
+                  ? 'bg-primary border-primary'
+                  : 'border-input bg-background',
+                node.selected || 'hover:bg-muted',
+                node.indeterminate && 'bg-primary border-primary',
               )}
-              <span className='truncate'>{node.item.name}</span>
+            >
+              {node.selected && !node.indeterminate && (
+                <Check className='h-3 w-3 text-primary-foreground' />
+              )}
+              {node.indeterminate && (
+                <div className='w-2 h-px bg-primary-foreground' />
+              )}
             </div>
+          </div>
+
+          {/* Icon and filename in one row */}
+          <div className='flex items-center min-w-0 flex-1 gap-1 hover:bg-muted rounded px-1'>
+            {node.item.is_dir ? (
+              <Folder className='h-4 w-4 flex-shrink-0 text-muted-foreground' />
+            ) : (
+              <File className='h-4 w-4 flex-shrink-0 text-muted-foreground' />
+            )}
+            <span className='truncate'>{node.item.name}</span>
           </div>
         </div>
 

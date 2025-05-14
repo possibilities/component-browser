@@ -61,13 +61,15 @@ export default async function Home() {
 
   return (
     <div className='flex h-screen w-full'>
-      <div className='w-1/4 h-full overflow-y-auto overflow-x-hidden border-r border-[var(--border)]'>
-        <FileTree
-          files={files}
-          selectedFiles={[]}
-          onSelectionChange={handleSelectionChange}
-          onExpansionChange={handleExpansionChange}
-        />
+      <div className='w-1/4 h-full overflow-y-auto overflow-x-clip border-r border-[var(--border)] p-2'>
+        <div className="w-full">
+          <FileTree
+            files={files}
+            selectedFiles={[]}
+            onSelectionChange={handleSelectionChange}
+            onExpansionChange={handleExpansionChange}
+          />
+        </div>
       </div>
 
       <div className='w-3/4 h-full flex flex-col'>
