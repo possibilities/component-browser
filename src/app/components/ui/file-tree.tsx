@@ -280,9 +280,7 @@ export function FileTree({
     return (
       <div key={node.item.path} className='select-none'>
         <div
-          className={
-            'flex items-center py-1 px-1 rounded-md outline-none overflow-hidden'
-          }
+          className={'flex items-center py-1 px-1 rounded-md outline-none'}
           tabIndex={0}
         >
           {/* Caret - fixed width */}
