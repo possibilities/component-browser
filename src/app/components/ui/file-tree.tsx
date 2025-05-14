@@ -292,11 +292,11 @@ export function FileTree({
                 onClick={e => toggleFolderExpansion(node.item.path, e)}
               >
                 {node.children.length > 0 ? (
-                  isExpanded ? (
-                    <ChevronDown className='h-4 w-4' />
-                  ) : (
-                    <ChevronRight className='h-4 w-4' />
-                  )
+                  <ChevronRight 
+                    className={`h-4 w-4 transition-transform duration-200 ${
+                      isExpanded ? 'rotate-90' : ''
+                    }`} 
+                  />
                 ) : (
                   <ChevronRight className='h-4 w-4 opacity-0' />
                 )}
