@@ -144,8 +144,6 @@ export function FileTree({
 }: FileTreeProps) {
   const [tree, setTree] = useState<TreeNode | null>(null)
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set())
-  const [prevSelectedFiles, setPrevSelectedFiles] =
-    useState<string[]>(selectedFiles)
 
   // Build tree from flat file list and apply selection state
   useEffect(() => {
@@ -193,18 +191,16 @@ export function FileTree({
     // Call onSelectionChange with added and removed files
     const currentSelectedFiles = getSelectedFiles(tree!)
 
-    // Find newly added files (present in current but not in previous)
+    // Compare with the input selectedFiles prop
+    // Find newly added files (present in current but not in input)
     const addedFiles = currentSelectedFiles.filter(
-      path => !prevSelectedFiles.includes(path),
+      path => !selectedFiles.includes(path),
     )
 
-    // Find newly removed files (present in previous but not in current)
-    const removedFiles = prevSelectedFiles.filter(
+    // Find newly removed files (present in input but not in current)
+    const removedFiles = selectedFiles.filter(
       path => !currentSelectedFiles.includes(path),
     )
-
-    // Update previous selected files for next comparison
-    setPrevSelectedFiles(currentSelectedFiles)
 
     // Only call if there are changes
     if (addedFiles.length > 0 || removedFiles.length > 0) {
