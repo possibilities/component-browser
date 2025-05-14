@@ -16,8 +16,8 @@ type FileItem = {
 
 type FileTreeProps = {
   files: FileItem[]
-  selectedFiles?: string[]
-  onSelectionChange?: (addedFiles: string[], removedFiles: string[]) => void
+  selectedFiles: string[]
+  onSelectionChange: (addedFiles: string[], removedFiles: string[]) => void
 }
 
 type TreeNode = {
@@ -29,7 +29,7 @@ type TreeNode = {
 }
 
 // Update node states (selected and indeterminate)
-const updateSelectionsRecursively = function processNode(node: TreeNode): {
+function updateSelectionsRecursively(node: TreeNode): {
   selected: number
   total: number
 } {
@@ -39,19 +39,18 @@ const updateSelectionsRecursively = function processNode(node: TreeNode): {
   }
 
   // Process children first (use named function for recursion)
-  const counts = node.children.map(processNode)
+  const counts = node.children.map(updateSelectionsRecursively)
   const selectedCount = counts.reduce((sum, count) => sum + count.selected, 0)
   const totalCount = counts.reduce((sum, count) => sum + count.total, 0)
 
   // Update this node's state
   node.selected = selectedCount === totalCount && totalCount > 0
   node.indeterminate = selectedCount > 0 && selectedCount < totalCount
-
   return { selected: selectedCount, total: totalCount }
 }
 
 // Sort children alphabetically for each node
-const sortNodesAlphabetically = (node: TreeNode) => {
+function sortNodesAlphabetically(node: TreeNode) {
   // Sort directories first, then files, both alphabetically by name
   node.children.sort((a, b) => {
     // If one is a directory and the other is not, directories come first
@@ -66,9 +65,79 @@ const sortNodesAlphabetically = (node: TreeNode) => {
   node.children.forEach(sortNodesAlphabetically)
 }
 
+function buildTree(files: FileItem[], selectedFiles: string[]) {
+  const root: TreeNode = {
+    item: {
+      path: '',
+      is_dir: true,
+      name: 'root',
+      size: 0,
+    },
+    children: [],
+    parent: null,
+    selected: false,
+    indeterminate: false,
+  }
+
+  const nodeMap = new Map<string, TreeNode>()
+  nodeMap.set('', root)
+
+  // Sort files to ensure parents come before children
+  const sortedFiles = [...files].sort((a, b) => {
+    const aDepth = a.path.split('/').length
+    const bDepth = b.path.split('/').length
+    return aDepth - bDepth
+  })
+
+  // Create nodes for each file
+  sortedFiles.forEach(file => {
+    // Check if file is selected based on selectedFiles prop
+    const isSelected = selectedFiles.includes(file.path)
+
+    const node: TreeNode = {
+      item: { ...file },
+      children: [],
+      parent: null,
+      selected: isSelected,
+      indeterminate: false,
+    }
+    nodeMap.set(file.path, node)
+
+    // Find parent
+    if (file.is_dir === false) {
+      // For files, parent is the directory containing it
+      const parentPath = file.path.substring(0, file.path.lastIndexOf('/'))
+      const parent = nodeMap.get(parentPath || '')
+      if (parent) {
+        node.parent = parent
+        parent.children.push(node)
+      } else {
+        root.children.push(node)
+      }
+    } else {
+      // For directories, parent is the directory containing it
+      const pathParts = file.path.split('/')
+      pathParts.pop() // Remove the directory name itself
+      const parentPath = pathParts.join('/')
+      const parent = nodeMap.get(parentPath || '')
+      if (parent) {
+        node.parent = parent
+        parent.children.push(node)
+      } else {
+        root.children.push(node)
+      }
+    }
+  })
+
+  updateSelectionsRecursively(root)
+  sortNodesAlphabetically(root)
+
+  return root
+}
+
 export function FileTree({
   files,
-  selectedFiles = [],
+  selectedFiles,
   onSelectionChange,
 }: FileTreeProps) {
   const [tree, setTree] = useState<TreeNode | null>(null)
@@ -78,77 +147,8 @@ export function FileTree({
 
   // Build tree from flat file list and apply selection state
   useEffect(() => {
-    const buildTree = () => {
-      const root: TreeNode = {
-        item: {
-          path: '',
-          is_dir: true,
-          name: 'root',
-          size: 0,
-        },
-        children: [],
-        parent: null,
-        selected: false,
-        indeterminate: false,
-      }
-
-      const nodeMap = new Map<string, TreeNode>()
-      nodeMap.set('', root)
-
-      // Sort files to ensure parents come before children
-      const sortedFiles = [...files].sort((a, b) => {
-        const aDepth = a.path.split('/').length
-        const bDepth = b.path.split('/').length
-        return aDepth - bDepth
-      })
-
-      // Create nodes for each file
-      sortedFiles.forEach(file => {
-        // Check if file is selected based on selectedFiles prop
-        const isSelected = selectedFiles.includes(file.path)
-
-        const node: TreeNode = {
-          item: { ...file },
-          children: [],
-          parent: null,
-          selected: isSelected,
-          indeterminate: false,
-        }
-        nodeMap.set(file.path, node)
-
-        // Find parent
-        if (file.is_dir === false) {
-          // For files, parent is the directory containing it
-          const parentPath = file.path.substring(0, file.path.lastIndexOf('/'))
-          const parent = nodeMap.get(parentPath || '')
-          if (parent) {
-            node.parent = parent
-            parent.children.push(node)
-          } else {
-            root.children.push(node)
-          }
-        } else {
-          // For directories, parent is the directory containing it
-          const pathParts = file.path.split('/')
-          pathParts.pop() // Remove the directory name itself
-          const parentPath = pathParts.join('/')
-          const parent = nodeMap.get(parentPath || '')
-          if (parent) {
-            node.parent = parent
-            parent.children.push(node)
-          } else {
-            root.children.push(node)
-          }
-        }
-      })
-
-      updateSelectionsRecursively(root)
-      sortNodesAlphabetically(root)
-
-      return root
-    }
-
-    setTree(buildTree())
+    const tree = buildTree(files, selectedFiles)
+    setTree(tree)
   }, [files, selectedFiles])
 
   // Toggle selection of a node
@@ -187,26 +187,24 @@ export function FileTree({
     setTree({ ...tree! })
 
     // Call onSelectionChange with added and removed files
-    if (onSelectionChange) {
-      const currentSelectedFiles = getSelectedFiles(tree!)
+    const currentSelectedFiles = getSelectedFiles(tree!)
 
-      // Find newly added files (present in current but not in previous)
-      const addedFiles = currentSelectedFiles.filter(
-        path => !prevSelectedFiles.includes(path),
-      )
+    // Find newly added files (present in current but not in previous)
+    const addedFiles = currentSelectedFiles.filter(
+      path => !prevSelectedFiles.includes(path),
+    )
 
-      // Find newly removed files (present in previous but not in current)
-      const removedFiles = prevSelectedFiles.filter(
-        path => !currentSelectedFiles.includes(path),
-      )
+    // Find newly removed files (present in previous but not in current)
+    const removedFiles = prevSelectedFiles.filter(
+      path => !currentSelectedFiles.includes(path),
+    )
 
-      // Update previous selected files for next comparison
-      setPrevSelectedFiles(currentSelectedFiles)
+    // Update previous selected files for next comparison
+    setPrevSelectedFiles(currentSelectedFiles)
 
-      // Only call if there are changes
-      if (addedFiles.length > 0 || removedFiles.length > 0) {
-        onSelectionChange(addedFiles, removedFiles)
-      }
+    // Only call if there are changes
+    if (addedFiles.length > 0 || removedFiles.length > 0) {
+      onSelectionChange(addedFiles, removedFiles)
     }
   }
 
