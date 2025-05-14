@@ -61,8 +61,8 @@ export default async function Home() {
 
   return (
     <div className='flex h-screen w-full'>
-      <div className='w-1/4 h-full overflow-y-auto overflow-x-clip border-r border-[var(--border)] p-2'>
-        <div className="w-full">
+      <div className='w-1/4 h-full overflow-y-auto overflow-x-clip border-r border-[var(--border)] p-4'>
+        <div className='w-full'>
           <FileTree
             files={files}
             selectedFiles={[]}
@@ -73,22 +73,50 @@ export default async function Home() {
       </div>
 
       <div className='w-3/4 h-full flex flex-col'>
-        <div className='h-1/2 border-b border-[var(--border)] p-4'>
+        <div className='h-2/5 border-b border-[var(--border)] p-4'>
           <Textarea
             className='w-full h-full resize-none'
             placeholder='Enter text here...'
           />
         </div>
 
-        <div className='h-1/2 p-4 overflow-y-auto'>
+        <div className='h-3/5 p-4 overflow-y-auto'>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
-            <FileCard fileName='document.pdf' />
-            <FileCard fileName='image.png' />
-            <FileCard fileName='spreadsheet.xlsx' />
-            <FileCard fileName='presentation.pptx' />
-            <FileCard fileName='source.js' />
-            <FileCard fileName='styles.css' />
-            <FileCard fileName='config.json' />
+            <FileCard
+              fileName='document.pdf'
+              fileSize={'0.22k'}
+              fileSizePercent={'3%'}
+            />
+            <FileCard
+              fileName='image.png'
+              fileSize={'1.5M'}
+              fileSizePercent={'10%'}
+            />
+            <FileCard
+              fileName='spreadsheet.xlsx'
+              fileSize={'500k'}
+              fileSizePercent={'5%'}
+            />
+            <FileCard
+              fileName='presentation.pptx'
+              fileSize={'2.3M'}
+              fileSizePercent={'20%'}
+            />
+            <FileCard
+              fileName='source.js'
+              fileSize={'50k'}
+              fileSizePercent={'1%'}
+            />
+            <FileCard
+              fileName='styles.css'
+              fileSize={'30k'}
+              fileSizePercent={'0.5%'}
+            />
+            <FileCard
+              fileName='config.json'
+              fileSize={'10k'}
+              fileSizePercent={'0.2%'}
+            />
           </div>
         </div>
       </div>
