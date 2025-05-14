@@ -18,6 +18,10 @@ type FileTreeProps = {
   files: FileItem[]
   selectedFiles: string[]
   onSelectionChange: (addedFiles: string[], removedFiles: string[]) => void
+  onExpansionChange: (
+    expandedFiles: string[],
+    contractedFiles: string[],
+  ) => void
 }
 
 type TreeNode = {
@@ -129,9 +133,6 @@ function buildTree(files: FileItem[], selectedFiles: string[]) {
     }
   })
 
-  updateSelectionsRecursively(root)
-  sortNodesAlphabetically(root)
-
   return root
 }
 
@@ -139,6 +140,7 @@ export function FileTree({
   files,
   selectedFiles,
   onSelectionChange,
+  onExpansionChange,
 }: FileTreeProps) {
   const [tree, setTree] = useState<TreeNode | null>(null)
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set())
@@ -148,6 +150,8 @@ export function FileTree({
   // Build tree from flat file list and apply selection state
   useEffect(() => {
     const tree = buildTree(files, selectedFiles)
+    updateSelectionsRecursively(tree)
+    sortNodesAlphabetically(tree)
     setTree(tree)
   }, [files, selectedFiles])
 
@@ -230,6 +234,7 @@ export function FileTree({
     e.stopPropagation() // Prevent triggering checkbox toggle
 
     const newExpandedFolders = new Set(expandedFolders)
+    const currentExpanded = Array.from(expandedFolders)
 
     if (newExpandedFolders.has(path)) {
       newExpandedFolders.delete(path)
@@ -238,6 +243,27 @@ export function FileTree({
     }
 
     setExpandedFolders(newExpandedFolders)
+
+    // Call onExpansionChange with added and removed folders
+    const nextExpanded = Array.from(newExpandedFolders)
+
+    // Find newly expanded folders (present in next but not in previous)
+    const expandedFiles = nextExpanded.filter(
+      path => !currentExpanded.includes(path),
+    )
+
+    // Find newly contracted folders (present in previous but not in next)
+    const contractedFiles = currentExpanded.filter(
+      path => !nextExpanded.includes(path),
+    )
+
+    // Only call if there are changes
+    if (expandedFiles.length > 0 || contractedFiles.length > 0) {
+      onExpansionChange(expandedFiles, contractedFiles)
+    }
+
+    // // Update previous expanded folders for next comparison
+    // setPrevExpandedFolders(nextExpanded)
   }
 
   // Render a node and its children
@@ -270,10 +296,7 @@ export function FileTree({
                 type='button'
                 className='w-5 h-5 flex items-center justify-center text-muted-foreground outline-none focus:outline-none'
                 aria-label={`Toggle ${node.item.name}`}
-                onClick={e => {
-                  e.stopPropagation() // Prevent checkbox toggle
-                  toggleFolderExpansion(node.item.path, e)
-                }}
+                onClick={e => toggleFolderExpansion(node.item.path, e)}
               >
                 {node.children.length > 0 ? (
                   isExpanded ? (

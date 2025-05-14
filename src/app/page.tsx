@@ -15,6 +15,15 @@ async function handleSelectionChange(
   console.log('Removed files:', removedFiles)
 }
 
+async function handleExpansionChange(
+  expandedFiles: string[],
+  contractedFiles: string[],
+) {
+  'use server'
+  console.log('Expanded files:', expandedFiles)
+  console.log('Contracted files:', contractedFiles)
+}
+
 class Repository {
   constructor(public pathOrUrl: string) {}
 
@@ -56,6 +65,7 @@ export default async function Home() {
           files={files}
           selectedFiles={[]}
           onSelectionChange={handleSelectionChange}
+          onExpansionChange={handleExpansionChange}
         />
       </div>
 
