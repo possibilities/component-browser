@@ -257,9 +257,6 @@ export function FileTree({
     if (expandedFiles.length > 0 || contractedFiles.length > 0) {
       onExpansionChange(expandedFiles, contractedFiles)
     }
-
-    // // Update previous expanded folders for next comparison
-    // setPrevExpandedFolders(nextExpanded)
   }
 
   // Render a node and its children
@@ -280,7 +277,9 @@ export function FileTree({
     return (
       <div key={node.item.path} className='select-none'>
         <div
-          className={'flex items-center py-1 px-1 rounded-md outline-none max-w-full'}
+          className={
+            'flex items-center py-1 px-1 rounded-md outline-none max-w-full'
+          }
           tabIndex={0}
         >
           {/* Caret - fixed width */}
