@@ -1,6 +1,8 @@
 'use server'
 
 import { FileTree } from '@/app/components/ui/file-tree'
+import { FileCard } from '@/app/components/ui/file-card'
+import { Textarea } from '@/app/components/ui/textarea'
 import { exec } from 'child_process'
 import { promisify } from 'util'
 
@@ -60,7 +62,7 @@ export default async function Home() {
   return (
     <div className='flex h-screen w-full'>
       {/* Left panel - File Tree (25% width) */}
-      <div className='w-1/4 h-full overflow-y-auto overflow-x-hidden border-r border-border'>
+      <div className='w-1/4 h-full overflow-y-auto overflow-x-hidden border-r border-[var(--border)]'>
         <FileTree
           files={files}
           selectedFiles={[]}
@@ -72,10 +74,25 @@ export default async function Home() {
       {/* Right side (75% width) - split into top and bottom panels */}
       <div className='w-3/4 h-full flex flex-col'>
         {/* Top panel - 50% of right side height */}
-        <div className='h-1/2 border-b border-border p-4'></div>
+        <div className='h-1/2 border-b border-[var(--border)] p-4'>
+          <Textarea
+            className='w-full h-full resize-none'
+            placeholder='Enter text here...'
+          />
+        </div>
 
         {/* Bottom panel - 50% of right side height */}
-        <div className='h-1/2 p-4'></div>
+        <div className='h-1/2 p-4 overflow-y-auto'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+            <FileCard fileName='document.pdf' />
+            <FileCard fileName='image.png' />
+            <FileCard fileName='spreadsheet.xlsx' />
+            <FileCard fileName='presentation.pptx' />
+            <FileCard fileName='source.js' />
+            <FileCard fileName='styles.css' />
+            <FileCard fileName='config.json' />
+          </div>
+        </div>
       </div>
     </div>
   )
