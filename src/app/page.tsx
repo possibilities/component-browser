@@ -47,31 +47,25 @@ async function getFileTree(pathOrUrl: string) {
 
 export default async function Home() {
   const files = await getFileTree('https://github.com/possibilities/dotfiles')
-  
+
   return (
-    <div className="flex h-screen w-full">
+    <div className='flex h-screen w-full'>
       {/* Left panel - File Tree (25% width) */}
-      <div className="w-1/4 h-full overflow-y-auto overflow-x-hidden border-r border-border p-2">
+      <div className='w-1/4 h-full overflow-y-auto overflow-x-hidden border-r border-border'>
         <FileTree
           files={files}
           selectedFiles={[]}
           onSelectionChange={handleSelectionChange}
         />
       </div>
-      
+
       {/* Right side (75% width) - split into top and bottom panels */}
-      <div className="w-3/4 h-full flex flex-col">
+      <div className='w-3/4 h-full flex flex-col'>
         {/* Top panel - 50% of right side height */}
-        <div className="h-1/2 border-b border-border p-4">
-          <h2 className="text-lg font-semibold">Top Panel</h2>
-          <p>Selected files will be displayed here</p>
-        </div>
-        
+        <div className='h-1/2 border-b border-border p-4'></div>
+
         {/* Bottom panel - 50% of right side height */}
-        <div className="h-1/2 p-4">
-          <h2 className="text-lg font-semibold">Bottom Panel</h2>
-          <p>Additional content can go here</p>
-        </div>
+        <div className='h-1/2 p-4'></div>
       </div>
     </div>
   )

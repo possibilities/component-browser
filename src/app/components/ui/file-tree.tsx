@@ -270,59 +270,66 @@ export function FileTree({
       <div key={node.item.path} className='select-none'>
         <div
           className={
-            'flex items-center gap-3 py-1 px-1 hover:bg-muted cursor-pointer rounded-md outline-none'
+            'flex gap-2 items-center py-1 px-1 hover:bg-muted cursor-pointer rounded-md outline-none overflow-hidden'
           }
           onClick={() => toggleNode(node)}
           tabIndex={0}
         >
-          {node.item.is_dir && (
-            <button
-              type='button'
-              className='w-5 h-5 flex items-center justify-center text-muted-foreground outline-none focus:outline-none'
-              aria-label={`Toggle ${node.item.name}`}
-              onClick={e => {
-                e.stopPropagation() // Prevent checkbox toggle
-                toggleFolderExpansion(node.item.path, e)
-              }}
-            >
-              {node.children.length > 0 ? (
-                isExpanded ? (
-                  <ChevronDown className='h-4 w-4' />
+          {/* Caret - fixed width */}
+          <div className='w-5 flex-shrink-0 flex items-center justify-center'>
+            {node.item.is_dir ? (
+              <button
+                type='button'
+                className='w-5 h-5 flex items-center justify-center text-muted-foreground outline-none focus:outline-none'
+                aria-label={`Toggle ${node.item.name}`}
+                onClick={e => {
+                  e.stopPropagation() // Prevent checkbox toggle
+                  toggleFolderExpansion(node.item.path, e)
+                }}
+              >
+                {node.children.length > 0 ? (
+                  isExpanded ? (
+                    <ChevronDown className='h-4 w-4' />
+                  ) : (
+                    <ChevronRight className='h-4 w-4' />
+                  )
                 ) : (
-                  <ChevronRight className='h-4 w-4' />
-                )
-              ) : (
-                <ChevronRight className='h-4 w-4 opacity-0' />
-              )}
-            </button>
-          )}
-
-          {!node.item.is_dir && <span className='w-5' />}
-
-          <div
-            className={cn(
-              'w-4 h-4 border rounded-sm flex items-center justify-center outline-none',
-              node.selected
-                ? 'bg-primary border-primary'
-                : 'border-input bg-background',
-              node.indeterminate && 'bg-primary border-primary',
-            )}
-          >
-            {node.selected && !node.indeterminate && (
-              <Check className='h-3 w-3 text-primary-foreground' />
-            )}
-            {node.indeterminate && (
-              <div className='w-2 h-px bg-primary-foreground' />
+                  <ChevronRight className='h-4 w-4 opacity-0' />
+                )}
+              </button>
+            ) : (
+              <span className='w-5' />
             )}
           </div>
 
-          <span className='flex items-center gap-2.5'>
+          {/* Checkbox - fixed width/height */}
+          <div className='mr-2 flex-shrink-0'>
+            <div
+              className={cn(
+                'w-4 h-4 min-w-[16px] min-h-[16px] border rounded-sm flex items-center justify-center outline-none',
+                node.selected
+                  ? 'bg-primary border-primary'
+                  : 'border-input bg-background',
+                node.indeterminate && 'bg-primary border-primary',
+              )}
+            >
+              {node.selected && !node.indeterminate && (
+                <Check className='h-3 w-3 text-primary-foreground' />
+              )}
+              {node.indeterminate && (
+                <div className='w-2 h-px bg-primary-foreground' />
+              )}
+            </div>
+          </div>
+
+          {/* Icon and filename */}
+          <span className='flex items-center gap-3.5 min-w-0'>
             {node.item.is_dir ? (
-              <Folder className='h-4 w-4 text-muted-foreground' />
+              <Folder className='h-4 w-4 flex-shrink-0 text-muted-foreground' />
             ) : (
-              <File className='h-4 w-4 text-muted-foreground' />
+              <File className='h-4 w-4 flex-shrink-0 text-muted-foreground' />
             )}
-            <span>{node.item.name}</span>
+            <span className='truncate'>{node.item.name}</span>
           </span>
         </div>
 
