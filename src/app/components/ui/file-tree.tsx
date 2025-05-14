@@ -270,9 +270,8 @@ export function FileTree({
       <div key={node.item.path} className='select-none'>
         <div
           className={
-            'flex gap-2 items-center py-1 px-1 hover:bg-muted cursor-pointer rounded-md outline-none overflow-hidden'
+            'flex gap-2 items-center py-1 px-1 hover:bg-muted rounded-md outline-none overflow-hidden'
           }
-          onClick={() => toggleNode(node)}
           tabIndex={0}
         >
           {/* Caret - fixed width */}
@@ -303,7 +302,10 @@ export function FileTree({
           </div>
 
           {/* Checkbox - fixed width/height */}
-          <div className='mr-2 flex-shrink-0'>
+          <div
+            className='mr-2 flex-shrink-0 cursor-pointer'
+            onClick={() => toggleNode(node)}
+          >
             <div
               className={cn(
                 'w-4 h-4 min-w-[16px] min-h-[16px] border rounded-sm flex items-center justify-center outline-none',
