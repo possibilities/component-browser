@@ -2,7 +2,7 @@
 
 import type React from 'react'
 
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState } from 'react'
 import { Check, ChevronDown, ChevronRight, File, Folder } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -28,6 +28,44 @@ type TreeNode = {
   indeterminate: boolean
 }
 
+// Update node states (selected and indeterminate)
+const updateSelectionsRecursively = function processNode(node: TreeNode): {
+  selected: number
+  total: number
+} {
+  if (node.children.length === 0) {
+    // Leaf node
+    return { selected: node.selected ? 1 : 0, total: 1 }
+  }
+
+  // Process children first (use named function for recursion)
+  const counts = node.children.map(processNode)
+  const selectedCount = counts.reduce((sum, count) => sum + count.selected, 0)
+  const totalCount = counts.reduce((sum, count) => sum + count.total, 0)
+
+  // Update this node's state
+  node.selected = selectedCount === totalCount && totalCount > 0
+  node.indeterminate = selectedCount > 0 && selectedCount < totalCount
+
+  return { selected: selectedCount, total: totalCount }
+}
+
+// Sort children alphabetically for each node
+const sortNodesAlphabetically = (node: TreeNode) => {
+  // Sort directories first, then files, both alphabetically by name
+  node.children.sort((a, b) => {
+    // If one is a directory and the other is not, directories come first
+    if (a.item.is_dir && !b.item.is_dir) return -1
+    if (!a.item.is_dir && b.item.is_dir) return 1
+
+    // Otherwise sort alphabetically by name
+    return a.item.name.localeCompare(b.item.name)
+  })
+
+  // Recursively sort children
+  node.children.forEach(sortNodesAlphabetically)
+}
+
 export function FileTree({
   files,
   selectedFiles = [],
@@ -37,34 +75,6 @@ export function FileTree({
   const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set())
   const [prevSelectedFiles, setPrevSelectedFiles] =
     useState<string[]>(selectedFiles)
-
-  // Initialize all folders as collapsed by default
-  useEffect(() => {
-    // Empty set means all folders are collapsed
-    setExpandedFolders(new Set())
-  }, [files])
-
-  // Update node states (selected and indeterminate)
-  const updateNodeStates = useCallback(function processNode(node: TreeNode): {
-    selected: number
-    total: number
-  } {
-    if (node.children.length === 0) {
-      // Leaf node
-      return { selected: node.selected ? 1 : 0, total: 1 }
-    }
-
-    // Process children first (use named function for recursion)
-    const counts = node.children.map(processNode)
-    const selectedCount = counts.reduce((sum, count) => sum + count.selected, 0)
-    const totalCount = counts.reduce((sum, count) => sum + count.total, 0)
-
-    // Update this node's state
-    node.selected = selectedCount === totalCount && totalCount > 0
-    node.indeterminate = selectedCount > 0 && selectedCount < totalCount
-
-    return { selected: selectedCount, total: totalCount }
-  }, [])
 
   // Build tree from flat file list and apply selection state
   useEffect(() => {
@@ -132,33 +142,14 @@ export function FileTree({
         }
       })
 
-      // Update selection and indeterminate states
-      updateNodeStates(root)
-
-      // Sort children alphabetically for each node
-      const sortNodesAlphabetically = (node: TreeNode) => {
-        // Sort directories first, then files, both alphabetically by name
-        node.children.sort((a, b) => {
-          // If one is a directory and the other is not, directories come first
-          if (a.item.is_dir && !b.item.is_dir) return -1
-          if (!a.item.is_dir && b.item.is_dir) return 1
-
-          // Otherwise sort alphabetically by name
-          return a.item.name.localeCompare(b.item.name)
-        })
-
-        // Recursively sort children
-        node.children.forEach(sortNodesAlphabetically)
-      }
-
-      // Apply sorting to the tree
+      updateSelectionsRecursively(root)
       sortNodesAlphabetically(root)
 
       return root
     }
 
     setTree(buildTree())
-  }, [files, selectedFiles, updateNodeStates])
+  }, [files, selectedFiles])
 
   // Toggle selection of a node
   const toggleNode = (node: TreeNode) => {
@@ -270,13 +261,13 @@ export function FileTree({
       <div key={node.item.path} className='select-none'>
         <div
           className={
-            'flex gap-2 items-center py-1 px-1 hover:bg-muted rounded-md outline-none overflow-hidden'
+            'flex items-center py-1 px-1 hover:bg-muted rounded-md outline-none overflow-hidden'
           }
           tabIndex={0}
         >
           {/* Caret - fixed width */}
-          <div className='w-5 flex-shrink-0 flex items-center justify-center'>
-            {node.item.is_dir ? (
+          <div className='w-5 mr-2 flex-shrink-0 flex items-center justify-center'>
+            {node.item.is_dir && (
               <button
                 type='button'
                 className='w-5 h-5 flex items-center justify-center text-muted-foreground outline-none focus:outline-none'
@@ -296,47 +287,45 @@ export function FileTree({
                   <ChevronRight className='h-4 w-4 opacity-0' />
                 )}
               </button>
-            ) : (
-              <span className='w-5' />
             )}
           </div>
 
-          {/* Checkbox - fixed width/height */}
-          <div
-            className='mr-2 flex-shrink-0 cursor-pointer'
-            onClick={() => toggleNode(node)}
-          >
+          <div className='flex items-center gap-2'>
+            {/* Checkbox - fixed width/height */}
             <div
-              className={cn(
-                'w-4 h-4 min-w-[16px] min-h-[16px] border rounded-sm flex items-center justify-center outline-none',
-                node.selected
-                  ? 'bg-primary border-primary'
-                  : 'border-input bg-background',
-                node.indeterminate && 'bg-primary border-primary',
-              )}
+              className='w-5 flex justify-center flex-shrink-0 cursor-pointer'
+              onClick={() => toggleNode(node)}
             >
-              {node.selected && !node.indeterminate && (
-                <Check className='h-3 w-3 text-primary-foreground' />
-              )}
-              {node.indeterminate && (
-                <div className='w-2 h-px bg-primary-foreground' />
-              )}
+              <div
+                className={cn(
+                  'w-4 h-4 min-w-[16px] min-h-[16px] border rounded-sm flex items-center justify-center outline-none',
+                  node.selected
+                    ? 'bg-primary border-primary'
+                    : 'border-input bg-background',
+                  node.indeterminate && 'bg-primary border-primary',
+                )}
+              >
+                {node.selected && !node.indeterminate && (
+                  <Check className='h-3 w-3 text-primary-foreground' />
+                )}
+                {node.indeterminate && (
+                  <div className='w-2 h-px bg-primary-foreground' />
+                )}
+              </div>
             </div>
-          </div>
 
-          {/* Icon and filename */}
-          <span className='flex items-center gap-3.5 min-w-0'>
+            {/* Icon and filename */}
             {node.item.is_dir ? (
-              <Folder className='h-4 w-4 flex-shrink-0 text-muted-foreground' />
+              <Folder className='h-4 w-5 flex-shrink-0 text-muted-foreground' />
             ) : (
-              <File className='h-4 w-4 flex-shrink-0 text-muted-foreground' />
+              <File className='h-4 w-5 flex-shrink-0 text-muted-foreground' />
             )}
             <span className='truncate'>{node.item.name}</span>
-          </span>
+          </div>
         </div>
 
         {node.item.is_dir && node.children.length > 0 && isExpanded && (
-          <div className='ml-6 space-y-1'>
+          <div className='ml-4.75 space-y-1'>
             {node.children.map(child => renderNode(child, level + 1))}
           </div>
         )}
