@@ -306,7 +306,7 @@ export function FileTree({
 
           {/* Checkbox - fixed width/height */}
           <div
-            className='w-5 mr-1 flex-shrink-0 flex justify-center cursor-pointer'
+            className='w-5 mr-1 flex-shrink-0 flex justify-center'
             onClick={() => toggleNode(node)}
           >
             <div
