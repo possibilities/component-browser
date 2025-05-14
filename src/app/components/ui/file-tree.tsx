@@ -269,10 +269,9 @@ export function FileTree({
     return (
       <div key={node.item.path} className='select-none'>
         <div
-          className={cn(
-            'flex items-center gap-2 py-1 px-1 hover:bg-muted cursor-pointer rounded-md outline-none',
-            level > 0 && 'ml-6',
-          )}
+          className={
+            'flex items-center gap-3 py-1 px-1 hover:bg-muted cursor-pointer rounded-md outline-none'
+          }
           onClick={() => toggleNode(node)}
           tabIndex={0}
         >
@@ -317,7 +316,7 @@ export function FileTree({
             )}
           </div>
 
-          <span className='flex items-center gap-1.5'>
+          <span className='flex items-center gap-2.5'>
             {node.item.is_dir ? (
               <Folder className='h-4 w-4 text-muted-foreground' />
             ) : (
