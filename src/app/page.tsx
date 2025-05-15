@@ -7,6 +7,7 @@ import { Button } from '@/app/components/ui/button'
 import { Textarea } from '@/app/components/ui/textarea'
 import { exec } from 'child_process'
 import { promisify } from 'util'
+import { Folder } from 'lucide-react'
 
 const execAsync = promisify(exec)
 
@@ -84,6 +85,10 @@ export default async function Home() {
 
         <div className='h-3/5 p-4 overflow-y-auto'>
           <div className='p-4 border border-[var(--border)] h-full'>
+            <div className='mb-4 flex gap-3 items-center px-3 py-1.5 border border-[var(--border)] justify-between text-muted-foreground text-base'>
+              <Folder className='h-5 w-5' />
+              22k (0.5%)
+            </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
               <FileCard
                 fileName='document.pdf'
