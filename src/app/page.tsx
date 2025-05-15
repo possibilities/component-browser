@@ -6,9 +6,24 @@ import { Input } from '@/app/components/ui/input'
 import { FileCard } from '@/app/components/file-card'
 import { Button } from '@/app/components/ui/button'
 import { Textarea } from '@/app/components/ui/textarea'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/app/components/ui/dropdown-menu'
 import { exec } from 'child_process'
 import { promisify } from 'util'
-import { Copy, Folder, Plus, ChevronRight, FileSearch } from 'lucide-react'
+import {
+  Copy,
+  Folder,
+  Settings,
+  Plus,
+  ChevronRight,
+  FileSearch,
+} from 'lucide-react'
 
 const execAsync = promisify(exec)
 
@@ -82,13 +97,29 @@ export default async function Home() {
 
       <div className='w-3/4 h-full flex flex-col'>
         <div className='h-2/5 px-3 pt-3 flex flex-col gap-3'>
-          <div className='flex items-center gap-3'>
-            <Button variant='outline' size='icon'>
-              <Plus />
+          <div className='flex items-center gap-3 justify-between'>
+            <div className='flex items-center gap-3'>
+              <DropdownMenu>
+                <DropdownMenuTrigger className='focus:outline-none focus:ring-0 focus:ring-offset-0'>
+                  <Button variant='secondary' size='icon'>
+                    <Plus />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align='start'>
+                  <DropdownMenuItem>Architect</DropdownMenuItem>
+                  <DropdownMenuItem>Engineer</DropdownMenuItem>
+                  <DropdownMenuItem>Researcher</DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>New template</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <Badge className='p-1.5' variant='outline'>
+                [INSTRUCTIONS]
+              </Badge>
+            </div>
+            <Button variant='secondary' size='icon'>
+              <Settings />
             </Button>
-            <Badge className='p-2' variant='outline'>
-              [INSTRUCTIONS]
-            </Badge>
           </div>
           <Textarea
             className='w-full h-full resize-none pr-10'
@@ -197,7 +228,7 @@ export default async function Home() {
           </div>
         </div>
         <div className='mb-3 mx-3'>
-          <Button variant='outline' className='w-full'>
+          <Button variant='secondary' className='w-full'>
             <Copy /> Copy Prompt
           </Button>
         </div>
