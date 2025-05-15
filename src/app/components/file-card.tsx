@@ -14,12 +14,12 @@ export function FileCard({
   fileSizePercent,
 }: FileCardProps) {
   return (
-    <Card className='hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)] cursor-pointer transition-colors'>
-      <CardHeader className='flex flex-row items-start'>
+    <Card className='hover:bg-[var(--accent)] hover:text-[var(--accent-foreground)] cursor-pointer transition-colors gap-3 p-3'>
+      <CardHeader className='flex flex-row items-start px-1'>
         <FileIcon className='h-4 w-4 mt-0.5' />
         <div className='text-sm font-medium truncate'>{fileName}</div>
       </CardHeader>
-      <CardContent>
+      <CardContent className='px-1'>
         <div className='text-xs text-[var(--muted-foreground)]'>
           {fileSize} ({fileSizePercent})
         </div>
