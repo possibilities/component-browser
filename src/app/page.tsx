@@ -1,5 +1,6 @@
 'use server'
 
+import { Copy } from 'lucide-react'
 import { FileTree } from '@/app/components/file-tree'
 import { FileCard } from '@/app/components/file-card'
 import { Button } from '@/app/components/ui/button'
@@ -124,7 +125,7 @@ export default async function Home() {
         </div>
         <div className='mb-4 mx-4'>
           <Button variant='outline' className='w-full'>
-            Copy Prompt
+            <Copy /> Copy Prompt
           </Button>
         </div>
       </div>

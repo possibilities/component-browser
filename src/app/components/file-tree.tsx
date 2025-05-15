@@ -305,31 +305,31 @@ export function FileTree({
           </div>
 
           {/* Checkbox - fixed width/height */}
-          <div
-            className='w-5 mr-1 flex-shrink-0 flex justify-center'
-            onClick={() => toggleNode(node)}
-          >
+          <div className='flex items-center gap-2'>
             <div
-              className={cn(
-                'w-4 h-4 min-w-[16px] min-h-[16px] border rounded-sm flex items-center justify-center outline-none',
-                node.selected
-                  ? 'bg-primary border-primary'
-                  : 'border-input bg-background',
-                node.selected || 'hover:bg-muted',
-                node.indeterminate && 'bg-primary border-primary',
-              )}
+              className='w-5 flex-shrink-0 flex justify-center'
+              onClick={() => toggleNode(node)}
             >
-              {node.selected && !node.indeterminate && (
-                <Check className='h-3 w-3 text-primary-foreground' />
-              )}
-              {node.indeterminate && (
-                <div className='w-2 h-px bg-primary-foreground' />
-              )}
+              <div
+                className={cn(
+                  'w-4 h-4 min-w-[16px] min-h-[16px] border rounded-sm flex items-center justify-center outline-none',
+                  node.selected
+                    ? 'bg-primary border-primary'
+                    : 'border-input bg-background',
+                  node.selected || 'hover:bg-muted',
+                  node.indeterminate && 'bg-primary border-primary',
+                )}
+              >
+                {node.selected && !node.indeterminate && (
+                  <Check className='h-3 w-3 text-primary-foreground' />
+                )}
+                {node.indeterminate && (
+                  <div className='w-2 h-px bg-primary-foreground' />
+                )}
+              </div>
             </div>
-          </div>
 
-          {/* Icon and filename in one row */}
-          <div className='flex items-center min-w-0 flex-1 gap-1 hover:bg-muted rounded px-1'>
+            {/* Icon and filename in one row */}
             {node.item.is_dir ? (
               <Folder className='h-4 w-4 flex-shrink-0 text-muted-foreground' />
             ) : (
