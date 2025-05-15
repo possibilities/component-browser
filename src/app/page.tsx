@@ -65,11 +65,11 @@ export default async function Home() {
   return (
     <div className='flex h-screen w-full relative'>
       <div className='w-1/4 h-full overflow-y-auto overflow-x-clip border-r border-[var(--border)]'>
-        <div className='flex items-center border-b border-[var(--border)] p-4 gap-4'>
+        <div className='flex items-center border-b border-[var(--border)] p-3 gap-3'>
           <Search />
           <Input placeholder='Search files' />
         </div>
-        <div className='w-full p-4'>
+        <div className='w-full p-3'>
           <FileTree
             files={files}
             selectedFiles={[]}
@@ -80,15 +80,15 @@ export default async function Home() {
       </div>
 
       <div className='w-3/4 h-full flex flex-col'>
-        <div className='h-2/5 pl-4 pr-4 pt-4'>
+        <div className='h-2/5 px-3 pt-3'>
           <Textarea
             className='w-full h-full resize-none'
             placeholder='Describe your changes...'
           />
         </div>
 
-        <div className='h-3/5 p-4 overflow-y-auto'>
-          <div className='p-4 border border-[var(--border)] h-full flex flex-col gap-4'>
+        <div className='h-3/5 p-3 overflow-y-auto'>
+          <div className='p-3 border border-[var(--border)] h-full flex flex-col gap-3'>
             <div className='flex gap-3 items-center px-3 py-1.5 border border-[var(--border)] justify-between text-muted-foreground text-base'>
               <div className='flex gap-3 items-center'>
                 <ChevronRight
@@ -100,7 +100,7 @@ export default async function Home() {
               </div>
               22k (0.5%)
             </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3'>
               <FileCard
                 fileName='document.pdf'
                 fileSize={'0.22k'}
@@ -149,7 +149,7 @@ export default async function Home() {
               </div>
               22k (0.5%)
             </div>
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3'>
               <FileCard
                 fileName='document.pdf'
                 fileSize={'0.22k'}
@@ -188,7 +188,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
-        <div className='mb-4 mx-4'>
+        <div className='mb-3 mx-3'>
           <Button variant='outline' className='w-full'>
             <Copy /> Copy Prompt
           </Button>
