@@ -1,13 +1,13 @@
 'use server'
 
-import { Copy } from 'lucide-react'
 import { FileTree } from '@/app/components/file-tree'
+import { Input } from '@/app/components/ui/input'
 import { FileCard } from '@/app/components/file-card'
 import { Button } from '@/app/components/ui/button'
 import { Textarea } from '@/app/components/ui/textarea'
 import { exec } from 'child_process'
 import { promisify } from 'util'
-import { Folder, ChevronRight } from 'lucide-react'
+import { Copy, Folder, ChevronRight, Search } from 'lucide-react'
 
 const execAsync = promisify(exec)
 
@@ -64,8 +64,12 @@ export default async function Home() {
 
   return (
     <div className='flex h-screen w-full relative'>
-      <div className='w-1/4 h-full overflow-y-auto overflow-x-clip border-r border-[var(--border)] p-4'>
-        <div className='w-full'>
+      <div className='w-1/4 h-full overflow-y-auto overflow-x-clip border-r border-[var(--border)]'>
+        <div className='flex items-center border-b border-[var(--border)] p-4 gap-4'>
+          <Search />
+          <Input placeholder='Search files' />
+        </div>
+        <div className='w-full p-4'>
           <FileTree
             files={files}
             selectedFiles={[]}
@@ -84,8 +88,8 @@ export default async function Home() {
         </div>
 
         <div className='h-3/5 p-4 overflow-y-auto'>
-          <div className='p-4 border border-[var(--border)] h-full'>
-            <div className='mb-4 flex gap-3 items-center px-3 py-1.5 border border-[var(--border)] justify-between text-muted-foreground text-base'>
+          <div className='p-4 border border-[var(--border)] h-full flex flex-col gap-4'>
+            <div className='flex gap-3 items-center px-3 py-1.5 border border-[var(--border)] justify-between text-muted-foreground text-base'>
               <div className='flex gap-3 items-center'>
                 <ChevronRight
                   className={`h-5 w-5 transition-transform duration-200 ${
@@ -93,6 +97,55 @@ export default async function Home() {
                   }`}
                 />
                 <Folder className='h-5 w-5' />
+              </div>
+              22k (0.5%)
+            </div>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
+              <FileCard
+                fileName='document.pdf'
+                fileSize={'0.22k'}
+                fileSizePercent={'3%'}
+              />
+              <FileCard
+                fileName='image.png'
+                fileSize={'1.5M'}
+                fileSizePercent={'10%'}
+              />
+              <FileCard
+                fileName='spreadsheet.xlsx'
+                fileSize={'500k'}
+                fileSizePercent={'5%'}
+              />
+              <FileCard
+                fileName='presentation.pptx'
+                fileSize={'2.3M'}
+                fileSizePercent={'20%'}
+              />
+              <FileCard
+                fileName='source.js'
+                fileSize={'50k'}
+                fileSizePercent={'1%'}
+              />
+              <FileCard
+                fileName='styles.css'
+                fileSize={'30k'}
+                fileSizePercent={'0.5%'}
+              />
+              <FileCard
+                fileName='config.json'
+                fileSize={'10k'}
+                fileSizePercent={'0.2%'}
+              />
+            </div>
+            <div className='flex gap-3 items-center px-3 py-1.5 border border-[var(--border)] justify-between text-muted-foreground text-base'>
+              <div className='flex gap-3 items-center'>
+                <ChevronRight
+                  className={`h-5 w-5 transition-transform duration-200 ${
+                    true ? 'rotate-90' : ''
+                  }`}
+                />
+                <Folder className='h-5 w-5' />
+                applications
               </div>
               22k (0.5%)
             </div>
