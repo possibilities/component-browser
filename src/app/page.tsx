@@ -82,7 +82,7 @@ export default async function Home() {
         </div>
 
         <div className='h-3/5 p-4 overflow-y-auto'>
-          <div className='p-4 border border-[var(--border)]'>
+          <div className='p-4 border border-[var(--border)] h-full'>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4'>
               <FileCard
                 fileName='document.pdf'
@@ -122,11 +122,12 @@ export default async function Home() {
             </div>
           </div>
         </div>
+        <div className='mb-4 mx-4'>
+          <Button variant='outline' className='w-full'>
+            Copy Prompt
+          </Button>
+        </div>
       </div>
-
-      <Button variant='outline' className='absolute bottom-4 right-4'>
-        Copy Prompt
-      </Button>
     </div>
   )
 }
