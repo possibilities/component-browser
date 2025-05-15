@@ -100,7 +100,7 @@ export default async function Home() {
           <div className='flex items-center gap-3 justify-between'>
             <div className='flex items-center gap-3'>
               <DropdownMenu>
-                <DropdownMenuTrigger className='focus:outline-none focus:ring-0 focus:ring-offset-0'>
+                <DropdownMenuTrigger asChild className='focus:outline-none focus:ring-0 focus:ring-offset-0'>
                   <Button variant='secondary' size='icon'>
                     <Plus />
                   </Button>
