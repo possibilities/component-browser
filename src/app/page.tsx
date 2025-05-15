@@ -2,7 +2,7 @@
 
 import { FileTree } from '@/app/components/file-tree'
 import { FileCard } from '@/app/components/file-card'
-import { CopyButton } from '@/app/components/copy-button'
+import { Button } from '@/app/components/ui/button'
 import { Textarea } from '@/app/components/ui/textarea'
 import { exec } from 'child_process'
 import { promisify } from 'util'
@@ -122,8 +122,9 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* Copy Prompt button in lower right corner */}
-      <CopyButton className='absolute bottom-4 right-4' />
+      <Button variant='outline' className='absolute bottom-4 right-4'>
+        Copy Prompt
+      </Button>
     </div>
   )
 }
