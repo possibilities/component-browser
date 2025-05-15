@@ -1,9 +1,9 @@
 'use server'
 
-import { FileTree } from '@/app/components/ui/file-tree'
-import { FileCard } from '@/app/components/ui/file-card'
+import { FileTree } from '@/app/components/file-tree'
+import { FileCard } from '@/app/components/file-card'
+import { CopyButton } from '@/app/components/copy-button'
 import { Textarea } from '@/app/components/ui/textarea'
-import { CopyButton } from '@/app/components/ui/copy-button'
 import { exec } from 'child_process'
 import { promisify } from 'util'
 
@@ -121,7 +121,7 @@ export default async function Home() {
           </div>
         </div>
       </div>
-      
+
       {/* Copy Prompt button in lower right corner */}
       <CopyButton className='absolute bottom-4 right-4' />
     </div>

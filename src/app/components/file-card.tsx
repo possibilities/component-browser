@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Card, CardContent, CardHeader } from './card'
+import { Card, CardContent, CardHeader } from '@/app/components/ui/card'
 import { FileIcon } from 'lucide-react'
 
 interface FileCardProps {
