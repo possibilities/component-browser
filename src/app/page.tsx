@@ -74,7 +74,7 @@ export default async function Home() {
       </div>
 
       <div className='w-3/4 h-full flex flex-col'>
-        <div className='h-2/5 p-4'>
+        <div className='h-2/5 border-b border-[var(--border)] p-4'>
           <Textarea
             className='w-full h-full resize-none'
             placeholder='Describe your changes...'
