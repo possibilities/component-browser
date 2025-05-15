@@ -4,8 +4,8 @@ import './globals.css'
 import './debug.css'
 
 export const metadata: Metadata = {
-  title: 'Kit UI',
-  description: 'Kit UI',
+  title: 'Context Composer',
+  description: 'A tool for composing and managing context for LLMs',
 }
 
 export default function RootLayout({
