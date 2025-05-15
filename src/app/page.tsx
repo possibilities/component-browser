@@ -1,13 +1,14 @@
 'use server'
 
 import { FileTree } from '@/app/components/file-tree'
+import { Badge } from '@/app/components/ui/badge'
 import { Input } from '@/app/components/ui/input'
 import { FileCard } from '@/app/components/file-card'
 import { Button } from '@/app/components/ui/button'
 import { Textarea } from '@/app/components/ui/textarea'
 import { exec } from 'child_process'
 import { promisify } from 'util'
-import { Copy, Folder, ChevronRight, Search } from 'lucide-react'
+import { Copy, Folder, Plus, ChevronRight, FileSearch } from 'lucide-react'
 
 const execAsync = promisify(exec)
 
@@ -66,7 +67,7 @@ export default async function Home() {
     <div className='flex h-screen w-full relative'>
       <div className='w-1/4 h-full overflow-y-auto overflow-x-clip border-r border-[var(--border)]'>
         <div className='flex items-center border-b border-[var(--border)] p-3 gap-3'>
-          <Search />
+          <FileSearch />
           <Input placeholder='Search files' />
         </div>
         <div className='w-full p-3'>
@@ -80,13 +81,20 @@ export default async function Home() {
       </div>
 
       <div className='w-3/4 h-full flex flex-col'>
-        <div className='h-2/5 px-3 pt-3'>
+        <div className='h-2/5 px-3 pt-3 flex flex-col gap-3'>
+          <div className='flex items-center gap-3'>
+            <Button variant='outline' size='icon'>
+              <Plus />
+            </Button>
+            <Badge className='p-2' variant='outline'>
+              [INSTRUCTIONS]
+            </Badge>
+          </div>
           <Textarea
-            className='w-full h-full resize-none'
-            placeholder='Describe your changes...'
+            className='w-full h-full resize-none pr-10'
+            placeholder='Enter instructions...'
           />
         </div>
-
         <div className='h-3/5 p-3 overflow-y-auto'>
           <div className='p-3 border border-[var(--border)] h-full flex flex-col gap-3'>
             <div className='flex gap-3 items-center px-3 py-1.5 border border-[var(--border)] justify-between text-muted-foreground text-base'>
