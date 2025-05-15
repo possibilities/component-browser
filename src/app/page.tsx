@@ -60,7 +60,7 @@ async function getFileTree(pathOrUrl: string) {
 }
 
 export default async function Home() {
-  const files = await getFileTree('https://github.com/possibilities/dotfiles')
+  const files = await getFileTree('https://github.com/rails/rails')
 
   return (
     <div className='flex h-screen w-full relative'>
