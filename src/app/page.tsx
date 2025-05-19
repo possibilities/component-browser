@@ -1,11 +1,11 @@
 'use server'
 
-import { FileTree } from '@/app/components/file-tree'
-import { Badge } from '@/app/components/ui/badge'
-import { Input } from '@/app/components/ui/input'
-import { FileCard } from '@/app/components/file-card'
-import { Button } from '@/app/components/ui/button'
-import { Textarea } from '@/app/components/ui/textarea'
+import { FileTree } from '@/components/file-tree'
+import { Badge } from '@/components/ui/badge'
+import { Input } from '@/components/ui/input'
+import { FileCard } from '@/components/file-card'
+import { Button } from '@/components/ui/button'
+import { Textarea } from '@/components/ui/textarea'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,7 +13,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/app/components/ui/dropdown-menu'
+} from '@/components/ui/dropdown-menu'
 import { exec } from 'child_process'
 import { promisify } from 'util'
 import {
@@ -117,7 +117,10 @@ export default async function Home() {
                 </DropdownMenuContent>
               </DropdownMenu>
               <Badge className='p-1.5' variant='outline'>
-                [INSTRUCTIONS]
+                ARCHITECT
+              </Badge>
+              <Badge className='p-1.5' variant='outline'>
+                INSTRUCTIONS
               </Badge>
             </div>
             <Button variant='secondary' size='icon'>

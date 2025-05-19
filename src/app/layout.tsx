@@ -5,7 +5,7 @@ import './debug.css'
 
 export const metadata: Metadata = {
   title: 'Context Composer',
-  description: 'A tool for composing and managing context for LLMs',
+  description: 'A tool for composing context for AI',
 }
 
 export default function RootLayout({

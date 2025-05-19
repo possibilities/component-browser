@@ -1,7 +1,7 @@
 {
-  "name": "ui-composer-nextjs-template",
+  "name": "context-composer",
   "version": "0.1.0",
-  "description": "UI Composer NextJs Template",
+  "description": "A tool for composing context for AI",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
