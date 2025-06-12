@@ -4,7 +4,7 @@ import type React from 'react'
 
 import { useEffect, useState } from 'react'
 import { ChevronRight, File, Folder } from 'lucide-react'
-import { CheckboxWithIndeterminate } from '@/components/checkbox-with-indeterminate'
+import { Checkbox } from '@/components/ui/checkbox'
 
 type FileItem = {
   path: string
@@ -249,7 +249,7 @@ export function FileTree({
 
           <div className='flex items-center gap-3'>
             <div className='w-5 flex-shrink-0 flex justify-center'>
-              <CheckboxWithIndeterminate
+              <Checkbox
                 checked={node.selected}
                 indeterminate={node.indeterminate}
                 onChange={() => toggleNode(node)}
