@@ -24,7 +24,7 @@ async function getFileTree(pathOrUrl) {
 
 async function main() {
   const args = process.argv.slice(2)
-  
+
   if (args.length === 0) {
     console.error('Usage: npm run get-test-files <github-user/repo>')
     console.error('Example: npm run get-test-files rails/rails')
@@ -33,23 +33,23 @@ async function main() {
 
   const repoPath = args[0]
   const githubUrl = `https://github.com/${repoPath}`
-  
+
   console.log(`Fetching file tree for ${githubUrl}...`)
-  
+
   const fileTree = await getFileTree(githubUrl)
-  
+
   if (fileTree.length === 0) {
     console.error('Failed to fetch file tree')
     process.exit(1)
   }
-  
+
   const outputDir = path.join(__dirname, '..', 'src', 'data')
   const outputFile = path.join(outputDir, 'test-files.json')
-  
+
   await fs.mkdir(outputDir, { recursive: true })
-  
+
   await fs.writeFile(outputFile, JSON.stringify(fileTree, null, 2))
-  
+
   console.log(`File tree saved to ${outputFile}`)
   console.log(`Total files: ${fileTree.length}`)
 }
