@@ -13,9 +13,6 @@ export default function Home() {
     addedFiles: string[],
     removedFiles: string[],
   ) => {
-    console.log('Added files:', addedFiles)
-    console.log('Removed files:', removedFiles)
-
     setSelectedFiles(prevSelected => {
       const newSelected = [...prevSelected]
 
@@ -40,9 +37,6 @@ export default function Home() {
     expandedFilesParam: string[],
     contractedFiles: string[],
   ) => {
-    console.log('Expanded files:', expandedFilesParam)
-    console.log('Contracted files:', contractedFiles)
-
     setExpandedFiles(prevExpanded => {
       const newExpanded = [...prevExpanded]
 
