@@ -1,6 +1,6 @@
 'use client'
 
-import { Checkbox } from '@/components/ui/checkbox'
+import { Checkbox } from '@/registry/default/checkbox/checkbox'
 import { ThemeToggle } from '@/components/theme-toggle'
 import {
   Breadcrumb,

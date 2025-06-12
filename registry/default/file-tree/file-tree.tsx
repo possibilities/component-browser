@@ -4,7 +4,7 @@ import type React from 'react'
 
 import { useEffect, useState } from 'react'
 import { ChevronRight, File, Folder } from 'lucide-react'
-import { Checkbox } from '@/components/ui/checkbox'
+import { Checkbox } from '@/registry/default/checkbox/checkbox'
 
 type FileTreeProps = {
   files: string[]
