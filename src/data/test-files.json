@@ -1,1918 +1,481 @@
 [
-  {
-    "path": "pyproject.toml",
-    "is_dir": false
-  },
-  {
-    "path": ".vscode",
-    "is_dir": true
-  },
-  {
-    "path": "tests",
-    "is_dir": true
-  },
-  {
-    "path": ".github",
-    "is_dir": true
-  },
-  {
-    "path": ".pre-commit-config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "README.md",
-    "is_dir": false
-  },
-  {
-    "path": "LICENSE",
-    "is_dir": false
-  },
-  {
-    "path": "src",
-    "is_dir": true
-  },
-  {
-    "path": ".gitignore",
-    "is_dir": false
-  },
-  {
-    "path": "examples",
-    "is_dir": true
-  },
-  {
-    "path": "scripts",
-    "is_dir": true
-  },
-  {
-    "path": ".python-version",
-    "is_dir": false
-  },
-  {
-    "path": ".vscode/fastagent.config.schema.json",
-    "is_dir": false
-  },
-  {
-    "path": ".vscode/settings.json",
-    "is_dir": false
-  },
-  {
-    "path": ".vscode/extensions.json",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration",
-    "is_dir": true
-  },
-  {
-    "path": "tests/e2e",
-    "is_dir": true
-  },
-  {
-    "path": "tests/unit",
-    "is_dir": true
-  },
-  {
-    "path": ".github/release-drafter.yml",
-    "is_dir": false
-  },
-  {
-    "path": ".github/workflows",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent",
-    "is_dir": true
-  },
-  {
-    "path": "examples/azure-openai",
-    "is_dir": true
-  },
-  {
-    "path": "examples/mcp",
-    "is_dir": true
-  },
-  {
-    "path": "examples/researcher",
-    "is_dir": true
-  },
-  {
-    "path": "examples/data-analysis",
-    "is_dir": true
-  },
-  {
-    "path": "examples/tensorzero",
-    "is_dir": true
-  },
-  {
-    "path": "examples/otel",
-    "is_dir": true
-  },
-  {
-    "path": "examples/workflows",
-    "is_dir": true
-  },
-  {
-    "path": "scripts/test_package_install.sh",
-    "is_dir": false
-  },
-  {
-    "path": "scripts/example.py",
-    "is_dir": false
-  },
-  {
-    "path": "scripts/event_summary.py",
-    "is_dir": false
-  },
-  {
-    "path": "scripts/gen_schema.py",
-    "is_dir": false
-  },
-  {
-    "path": "scripts/event_viewer.py",
-    "is_dir": false
-  },
-  {
-    "path": "scripts/event_replay.py",
-    "is_dir": false
-  },
-  {
-    "path": "scripts/rich_progress_test.py",
-    "is_dir": false
-  },
-  {
-    "path": "scripts/promptify.py",
-    "is_dir": false
-  },
-  {
-    "path": "scripts/lint.py",
-    "is_dir": false
-  },
-  {
-    "path": "scripts/format.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/conftest.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/sampling",
-    "is_dir": true
-  },
-  {
-    "path": "tests/integration/roots",
-    "is_dir": true
-  },
-  {
-    "path": "tests/integration/api",
-    "is_dir": true
-  },
-  {
-    "path": "tests/integration/prompt-server",
-    "is_dir": true
-  },
-  {
-    "path": "tests/integration/resources",
-    "is_dir": true
-  },
-  {
-    "path": "tests/integration/prompt-state",
-    "is_dir": true
-  },
-  {
-    "path": "tests/integration/workflow",
-    "is_dir": true
-  },
-  {
-    "path": "tests/e2e/conftest.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/sampling",
-    "is_dir": true
-  },
-  {
-    "path": "tests/e2e/structured",
-    "is_dir": true
-  },
-  {
-    "path": "tests/e2e/smoke",
-    "is_dir": true
-  },
-  {
-    "path": "tests/e2e/multimodal",
-    "is_dir": true
-  },
-  {
-    "path": "tests/e2e/prompts-resources",
-    "is_dir": true
-  },
-  {
-    "path": "tests/e2e/workflow",
-    "is_dir": true
-  },
-  {
-    "path": "tests/unit/mcp_agent",
-    "is_dir": true
-  },
-  {
-    "path": "tests/integration/sampling/test_sampling_integration.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/sampling/live.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/sampling/fastagent.config.auto_sampling_off.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/sampling/sampling_test_server.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/sampling/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/roots/live.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/roots/root_test_server.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/roots/test_roots.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/roots/root_client.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/roots/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/test_logger_textio.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/test_describe_a2a.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/test_provider_keys.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/test_prompt_listing.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/mcp_tools_server.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/fastagent.config.markup.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/integration_agent.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/test_cli_and_mcp_server.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/prompt.txt",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/stderr_test_script.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/playback.md",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/mcp_dynamic_tools.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/test_hyphens_in_name.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/test_prompt_commands.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/test_api.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/fastagent.secrets.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/test_markup_config.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/api/test_tool_list_change.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/prompt-server/test_prompt_server_integration.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/prompt-server/multi_sub.txt",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/prompt-server/simple_sub.txt",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/prompt-server/simple.txt",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/prompt-server/multipart.json",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/prompt-server/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/prompt-server/multi.txt",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/resources/prompt2.txt",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/resources/r1file2.txt",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/resources/test_resource_api.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/resources/r2file2.txt",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/resources/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/resources/prompt1.txt",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/resources/r2file1.txt",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/resources/r1file1.txt",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/prompt-state/conv2_text.txt",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/prompt-state/conv1_simple.md",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/prompt-state/conv2_attach.md",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/prompt-state/conv2_img.png",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/prompt-state/conv2_css.css",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/prompt-state/test_load_prompt_templates.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/prompt-state/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/workflow/orchestrator",
-    "is_dir": true
-  },
-  {
-    "path": "tests/integration/workflow/parallel",
-    "is_dir": true
-  },
-  {
-    "path": "tests/integration/workflow/chain",
-    "is_dir": true
-  },
-  {
-    "path": "tests/integration/workflow/mixed",
-    "is_dir": true
-  },
-  {
-    "path": "tests/integration/workflow/evaluator_optimizer",
-    "is_dir": true
-  },
-  {
-    "path": "tests/integration/workflow/router",
-    "is_dir": true
-  },
-  {
-    "path": "tests/integration/workflow/orchestrator/test_orchestrator.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/workflow/orchestrator/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/workflow/parallel/test_parallel_agent.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/workflow/parallel/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/workflow/chain/test_chain_passthrough.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/workflow/chain/test_chain.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/workflow/chain/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/workflow/mixed/test_mixed_workflow.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/workflow/mixed/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/workflow/evaluator_optimizer/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/workflow/evaluator_optimizer/test_evaluator_optimizer.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/workflow/router/router_script.txt",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/workflow/router/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/integration/workflow/router/test_router_agent.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/sampling/image.png",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/sampling/sampling_resource_server.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/sampling/test_sampling_e2e.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/sampling/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/structured/test_structured_outputs.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/structured/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/smoke/base",
-    "is_dir": true
-  },
-  {
-    "path": "tests/e2e/smoke/tensorzero",
-    "is_dir": true
-  },
-  {
-    "path": "tests/e2e/multimodal/image.png",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/multimodal/test_multimodal_images.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/multimodal/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/multimodal/sample.pdf",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/multimodal/image_server.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/prompts-resources/test_prompts.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/prompts-resources/style.css",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/prompts-resources/test_resources.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/prompts-resources/with_attachment_css.md",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/prompts-resources/simple.txt",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/prompts-resources/multiturn.md",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/prompts-resources/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/prompts-resources/sample.pdf",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/prompts-resources/with_attachment.md",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/workflow/test_router_agent_e2e.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/workflow/test_routing_server.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/workflow/umbrella.png",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/workflow/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/workflow/sunny.png",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/smoke/base/test_e2e_smoke.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/smoke/base/index.js.TEST_ONLY",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/smoke/base/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/smoke/base/test_server.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/smoke/tensorzero/test_image_demo.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/smoke/tensorzero/test_agent_interaction.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/e2e/smoke/tensorzero/test_simple_agent_interaction.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp_agent",
-    "is_dir": true
-  },
-  {
-    "path": "tests/unit/mcp_agent/agents",
-    "is_dir": true
-  },
-  {
-    "path": "tests/unit/mcp_agent/core",
-    "is_dir": true
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm",
-    "is_dir": true
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp",
-    "is_dir": true
-  },
-  {
-    "path": "tests/unit/mcp_agent/cli",
-    "is_dir": true
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp_agent/fixture",
-    "is_dir": true
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp_agent/test_event_progress.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/agents/test_agent_types.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/agents/workflow",
-    "is_dir": true
-  },
-  {
-    "path": "tests/unit/mcp_agent/core/test_mcp_content.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/core/test_prompt.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/test_playback.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/test_model_factory.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/test_structured.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/test_passthrough.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/test_provider_key_manager_hf.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/providers",
-    "is_dir": true
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/test_sampling_converter.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/test_prepare_arguments.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp/test_resource_utils.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp/test_prompt_message_multipart.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp/test_hf_auth.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp/test_prompt_multipart.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp/test_prompt_serialization.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp/test_sampling.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp/test_prompt_multipart_conversion.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp/test_mime_utils.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp/prompts",
-    "is_dir": true
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp/test_prompt_format_utils.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp/test_prompt_render.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/cli/commands",
-    "is_dir": true
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp_agent/fixture/README.md",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp_agent/fixture/expected_output.txt",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp_agent/fixture/mcp-basic-agent-2025-02-17.jsonl",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/agents/workflow/test_orchestrator_agent.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/agents/workflow/test_router_unit.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/providers/test_multipart_converter_anthropic.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/providers/test_sampling_converter_anthropic.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/providers/test_sampling_converter_openai.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/providers/test_multipart_converter_openai.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/providers/test_multipart_converter_tensorzero.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/providers/test_augmented_llm_azure.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/providers/test_augmented_llm_tensorzero_unit.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/llm/providers/test_multipart_converter_google.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp/prompts/test_template_multipart_integration.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp/prompts/test_prompt_template.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/mcp/prompts/test_prompt_helpers.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/cli/commands/test_url_parser.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/cli/commands/test_check_config.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/cli/commands/test_check_config_hf.py",
-    "is_dir": false
-  },
-  {
-    "path": "tests/unit/mcp_agent/cli/commands/test_url_parser_hf_auth.py",
-    "is_dir": false
-  },
-  {
-    "path": ".github/workflows/checks.yml",
-    "is_dir": false
-  },
-  {
-    "path": ".github/workflows/pr-checks.yml",
-    "is_dir": false
-  },
-  {
-    "path": ".github/workflows/create-tag.yml",
-    "is_dir": false
-  },
-  {
-    "path": ".github/workflows/main-checks.yml",
-    "is_dir": false
-  },
-  {
-    "path": ".github/workflows/release-drafter.yml",
-    "is_dir": false
-  },
-  {
-    "path": ".github/workflows/publish-pypi.yml",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/context_dependent.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/agents",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/tools",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/core",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/py.typed",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/mcp",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/cli",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/console.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/executor",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/app.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp_server_registry.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/mcp_server",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/human_input",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/event_progress.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/config.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/progress_display.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/context.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/logging",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/ui",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/__init__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/agents/agent.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/agents/base_agent.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/agents/workflow",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/agents/__init__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/tools/tool_definition.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/core/agent_types.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/core/request_params.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/core/interactive_prompt.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/core/exceptions.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/core/validation.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/core/agent_app.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/core/fastagent.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/core/enhanced_prompt.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/core/mcp_content.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/core/direct_factory.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/core/prompt.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/core/direct_decorators.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/core/error_handling.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/core/__init__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/model_factory.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/sampling_format_converter.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/augmented_llm_passthrough.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/provider_types.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/augmented_llm_playback.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/sampling_converter.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/augmented_llm_slow.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/provider_key_manager.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/llm/prompt_utils.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/augmented_llm.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/memory.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/__init__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/mcp_aggregator.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/resource_utils.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/mcp_connection_manager.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/gen_client.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/sampling.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/interfaces.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/logger_textio.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/prompt_render.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/helpers",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/mcp/prompt_serialization.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/common.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/prompt_message_multipart.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/mime_utils.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/prompts",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/mcp/hf_auth.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/mcp_agent_client_session.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/__init__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/cli/terminal.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/cli/commands",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/cli/main.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/cli/__main__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/cli/__init__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/executor/task_registry.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/executor/executor.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/executor/workflow_signal.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/executor/__init__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/mcp_server/agent_server.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp_server/__init__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/human_input/handler.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/human_input/types.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/human_input/__init__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/logging/events.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/logging/rich_progress.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/logging/transport.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/logging/logger.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/logging/json_serializer.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/logging/listeners.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/logging/__init__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/ui/console_display.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/agents/workflow/chain_agent.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/agents/workflow/router_agent.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/agents/workflow/orchestrator_prompts.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/agents/workflow/orchestrator_agent.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/agents/workflow/orchestrator_models.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/agents/workflow/parallel_agent.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/agents/workflow/evaluator_optimizer.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/agents/workflow/__init__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/anthropic_utils.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/sampling_converter_anthropic.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/README_anth_multipart.md",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/google_converter.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/augmented_llm_deepseek.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/augmented_llm_azure.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/augmented_llm_aliyun.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/augmented_llm_google_native.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/multipart_converter_anthropic.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/augmented_llm_openrouter.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/augmented_llm_generic.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/augmented_llm_tensorzero.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/augmented_llm_openai.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/multipart_converter_tensorzero.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/openai_utils.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/augmented_llm_google_oai.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/openai_multipart.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/sampling_converter_openai.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/augmented_llm_anthropic.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/multipart_converter_openai.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/llm/providers/__init__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/helpers/server_config_helpers.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/helpers/content_helpers.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/helpers/__init__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/prompts/prompt_template.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/prompts/prompt_helpers.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/prompts/prompt_constants.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/prompts/prompt_server.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/prompts/prompt_load.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/prompts/__main__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/mcp/prompts/__init__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/cli/commands/go.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/cli/commands/quickstart.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/cli/commands/setup.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/cli/commands/README.md",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/cli/commands/url_parser.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/cli/commands/check_config.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/in_dev",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/internal",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/mcp",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/researcher",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/data-analysis",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/workflows",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/in_dev/css-LICENSE.txt",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/in_dev/schema.css",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/in_dev/agent_build.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/in_dev/slides.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/in_dev/slides.md",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/in_dev/structure.css",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/in_dev/freud.css",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/internal/job.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/internal/agent.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/internal/sizer.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/internal/simple.txt",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/internal/history_transfer.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/internal/social.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/internal/prompt_category.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/internal/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/internal/prompt_sizing.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/mcp/state-transfer",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/researcher/researcher.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/researcher/researcher-imp.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/researcher/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/researcher/researcher-eval.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/data-analysis/analysis.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/data-analysis/analysis-campaign.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/data-analysis/mount-point",
-    "is_dir": true
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/data-analysis/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/test.exe",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/work_with_image.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/long_chat.md",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/2025-03-19_FLUX_1-schnell-infer_Image_dff80.webp",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/image.png",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/agent.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/pdf_prompt.md",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/persist.md",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/prompt2.md",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/sample.css",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/foo.md",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/resource-exe.md",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/resource.md",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/sizing.md",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/delimited_prompt.txt",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/testingagain.md",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/sample.pdf",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/image.jpg",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/prompt1.txt",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/image_server.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/prompting/__init__.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/workflows/evaluator.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/workflows/parallel.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/workflows/short_story.md",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/workflows/orchestrator.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/workflows/human_input.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/workflows/short_story.txt",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/workflows/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/workflows/chaining.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/workflows/router.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/workflows/graded_report.md",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/mcp/state-transfer/fastagent.secrets.yaml.example",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/mcp/state-transfer/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/mcp/state-transfer/agent_two.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/mcp/state-transfer/agent_one.py",
-    "is_dir": false
-  },
-  {
-    "path": "src/mcp_agent/resources/examples/data-analysis/mount-point/WA_Fn-UseC_-HR-Employee-Attrition.csv",
-    "is_dir": false
-  },
-  {
-    "path": "examples/azure-openai/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "examples/mcp/vision-examples",
-    "is_dir": true
-  },
-  {
-    "path": "examples/mcp/state-transfer",
-    "is_dir": true
-  },
-  {
-    "path": "examples/researcher/researcher.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/researcher/researcher-imp.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/researcher/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "examples/researcher/researcher-eval.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/data-analysis/analysis.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/data-analysis/analysis-campaign.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/data-analysis/mount-point",
-    "is_dir": true
-  },
-  {
-    "path": "examples/data-analysis/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/demo_images",
-    "is_dir": true
-  },
-  {
-    "path": "examples/tensorzero/agent.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/simple_agent.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/README.md",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/mcp_server",
-    "is_dir": true
-  },
-  {
-    "path": "examples/tensorzero/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/image_demo.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/.env.sample",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/tensorzero_config",
-    "is_dir": true
-  },
-  {
-    "path": "examples/tensorzero/Makefile",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/docker-compose.yml",
-    "is_dir": false
-  },
-  {
-    "path": "examples/otel/docker-compose.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "examples/otel/agent2.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/otel/agent.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/otel/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "examples/workflows/evaluator.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/workflows/parallel.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/workflows/short_story.md",
-    "is_dir": false
-  },
-  {
-    "path": "examples/workflows/orchestrator.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/workflows/human_input.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/workflows/short_story.txt",
-    "is_dir": false
-  },
-  {
-    "path": "examples/workflows/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "examples/workflows/chaining.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/workflows/router.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/workflows/graded_report.md",
-    "is_dir": false
-  },
-  {
-    "path": "examples/mcp/vision-examples/example3.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/mcp/vision-examples/example2.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/mcp/vision-examples/cat.png",
-    "is_dir": false
-  },
-  {
-    "path": "examples/mcp/vision-examples/example1.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/mcp/vision-examples/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "examples/mcp/state-transfer/fastagent.config.yaml",
-    "is_dir": false
-  },
-  {
-    "path": "examples/mcp/state-transfer/agent_two.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/mcp/state-transfer/agent_one.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/data-analysis/mount-point/WA_Fn-UseC_-HR-Employee-Attrition.csv",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/demo_images/shrimp.png",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/demo_images/clam.jpg",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/demo_images/crab.png",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/mcp_server/mcp_server.py",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/mcp_server/Dockerfile",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/mcp_server/entrypoint.sh",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/tensorzero_config/system_template.minijinja",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/tensorzero_config/tensorzero.toml",
-    "is_dir": false
-  },
-  {
-    "path": "examples/tensorzero/tensorzero_config/system_schema.json",
-    "is_dir": false
-  }
+  "pyproject.toml",
+  ".vscode",
+  "tests",
+  ".github",
+  ".pre-commit-config.yaml",
+  "README.md",
+  "LICENSE",
+  "src",
+  ".gitignore",
+  "examples",
+  "scripts",
+  ".python-version",
+  ".vscode/fastagent.config.schema.json",
+  ".vscode/settings.json",
+  ".vscode/extensions.json",
+  "tests/integration",
+  "tests/e2e",
+  "tests/unit",
+  ".github/release-drafter.yml",
+  ".github/workflows",
+  "src/mcp_agent",
+  "examples/azure-openai",
+  "examples/mcp",
+  "examples/researcher",
+  "examples/data-analysis",
+  "examples/tensorzero",
+  "examples/otel",
+  "examples/workflows",
+  "scripts/test_package_install.sh",
+  "scripts/example.py",
+  "scripts/event_summary.py",
+  "scripts/gen_schema.py",
+  "scripts/event_viewer.py",
+  "scripts/event_replay.py",
+  "scripts/rich_progress_test.py",
+  "scripts/promptify.py",
+  "scripts/lint.py",
+  "scripts/format.py",
+  "tests/integration/conftest.py",
+  "tests/integration/sampling",
+  "tests/integration/roots",
+  "tests/integration/api",
+  "tests/integration/prompt-server",
+  "tests/integration/resources",
+  "tests/integration/prompt-state",
+  "tests/integration/workflow",
+  "tests/e2e/conftest.py",
+  "tests/e2e/sampling",
+  "tests/e2e/structured",
+  "tests/e2e/smoke",
+  "tests/e2e/multimodal",
+  "tests/e2e/prompts-resources",
+  "tests/e2e/workflow",
+  "tests/unit/mcp_agent",
+  "tests/integration/sampling/test_sampling_integration.py",
+  "tests/integration/sampling/live.py",
+  "tests/integration/sampling/fastagent.config.auto_sampling_off.yaml",
+  "tests/integration/sampling/sampling_test_server.py",
+  "tests/integration/sampling/fastagent.config.yaml",
+  "tests/integration/roots/live.py",
+  "tests/integration/roots/root_test_server.py",
+  "tests/integration/roots/test_roots.py",
+  "tests/integration/roots/root_client.py",
+  "tests/integration/roots/fastagent.config.yaml",
+  "tests/integration/api/test_logger_textio.py",
+  "tests/integration/api/test_describe_a2a.py",
+  "tests/integration/api/test_provider_keys.py",
+  "tests/integration/api/test_prompt_listing.py",
+  "tests/integration/api/mcp_tools_server.py",
+  "tests/integration/api/fastagent.config.markup.yaml",
+  "tests/integration/api/integration_agent.py",
+  "tests/integration/api/test_cli_and_mcp_server.py",
+  "tests/integration/api/prompt.txt",
+  "tests/integration/api/stderr_test_script.py",
+  "tests/integration/api/playback.md",
+  "tests/integration/api/mcp_dynamic_tools.py",
+  "tests/integration/api/test_hyphens_in_name.py",
+  "tests/integration/api/fastagent.config.yaml",
+  "tests/integration/api/test_prompt_commands.py",
+  "tests/integration/api/test_api.py",
+  "tests/integration/api/fastagent.secrets.yaml",
+  "tests/integration/api/test_markup_config.py",
+  "tests/integration/api/test_tool_list_change.py",
+  "tests/integration/prompt-server/test_prompt_server_integration.py",
+  "tests/integration/prompt-server/multi_sub.txt",
+  "tests/integration/prompt-server/simple_sub.txt",
+  "tests/integration/prompt-server/simple.txt",
+  "tests/integration/prompt-server/multipart.json",
+  "tests/integration/prompt-server/fastagent.config.yaml",
+  "tests/integration/prompt-server/multi.txt",
+  "tests/integration/resources/prompt2.txt",
+  "tests/integration/resources/r1file2.txt",
+  "tests/integration/resources/test_resource_api.py",
+  "tests/integration/resources/r2file2.txt",
+  "tests/integration/resources/fastagent.config.yaml",
+  "tests/integration/resources/prompt1.txt",
+  "tests/integration/resources/r2file1.txt",
+  "tests/integration/resources/r1file1.txt",
+  "tests/integration/prompt-state/conv2_text.txt",
+  "tests/integration/prompt-state/conv1_simple.md",
+  "tests/integration/prompt-state/conv2_attach.md",
+  "tests/integration/prompt-state/conv2_img.png",
+  "tests/integration/prompt-state/conv2_css.css",
+  "tests/integration/prompt-state/test_load_prompt_templates.py",
+  "tests/integration/prompt-state/fastagent.config.yaml",
+  "tests/integration/workflow/orchestrator",
+  "tests/integration/workflow/parallel",
+  "tests/integration/workflow/chain",
+  "tests/integration/workflow/mixed",
+  "tests/integration/workflow/evaluator_optimizer",
+  "tests/integration/workflow/router",
+  "tests/integration/workflow/orchestrator/test_orchestrator.py",
+  "tests/integration/workflow/orchestrator/fastagent.config.yaml",
+  "tests/integration/workflow/parallel/test_parallel_agent.py",
+  "tests/integration/workflow/parallel/fastagent.config.yaml",
+  "tests/integration/workflow/chain/test_chain_passthrough.py",
+  "tests/integration/workflow/chain/test_chain.py",
+  "tests/integration/workflow/chain/fastagent.config.yaml",
+  "tests/integration/workflow/mixed/test_mixed_workflow.py",
+  "tests/integration/workflow/mixed/fastagent.config.yaml",
+  "tests/integration/workflow/evaluator_optimizer/fastagent.config.yaml",
+  "tests/integration/workflow/evaluator_optimizer/test_evaluator_optimizer.py",
+  "tests/integration/workflow/router/router_script.txt",
+  "tests/integration/workflow/router/fastagent.config.yaml",
+  "tests/integration/workflow/router/test_router_agent.py",
+  "tests/e2e/sampling/image.png",
+  "tests/e2e/sampling/sampling_resource_server.py",
+  "tests/e2e/sampling/test_sampling_e2e.py",
+  "tests/e2e/sampling/fastagent.config.yaml",
+  "tests/e2e/structured/test_structured_outputs.py",
+  "tests/e2e/structured/fastagent.config.yaml",
+  "tests/e2e/smoke/base",
+  "tests/e2e/smoke/tensorzero",
+  "tests/e2e/multimodal/image.png",
+  "tests/e2e/multimodal/test_multimodal_images.py",
+  "tests/e2e/multimodal/fastagent.config.yaml",
+  "tests/e2e/multimodal/sample.pdf",
+  "tests/e2e/multimodal/image_server.py",
+  "tests/e2e/prompts-resources/test_prompts.py",
+  "tests/e2e/prompts-resources/style.css",
+  "tests/e2e/prompts-resources/test_resources.py",
+  "tests/e2e/prompts-resources/with_attachment_css.md",
+  "tests/e2e/prompts-resources/simple.txt",
+  "tests/e2e/prompts-resources/multiturn.md",
+  "tests/e2e/prompts-resources/fastagent.config.yaml",
+  "tests/e2e/prompts-resources/sample.pdf",
+  "tests/e2e/prompts-resources/with_attachment.md",
+  "tests/e2e/workflow/test_router_agent_e2e.py",
+  "tests/e2e/workflow/test_routing_server.py",
+  "tests/e2e/workflow/umbrella.png",
+  "tests/e2e/workflow/fastagent.config.yaml",
+  "tests/e2e/workflow/sunny.png",
+  "tests/e2e/smoke/base/test_e2e_smoke.py",
+  "tests/e2e/smoke/base/index.js.TEST_ONLY",
+  "tests/e2e/smoke/base/fastagent.config.yaml",
+  "tests/e2e/smoke/base/test_server.py",
+  "tests/e2e/smoke/tensorzero/test_image_demo.py",
+  "tests/e2e/smoke/tensorzero/test_agent_interaction.py",
+  "tests/e2e/smoke/tensorzero/test_simple_agent_interaction.py",
+  "tests/unit/mcp_agent/mcp_agent",
+  "tests/unit/mcp_agent/agents",
+  "tests/unit/mcp_agent/core",
+  "tests/unit/mcp_agent/llm",
+  "tests/unit/mcp_agent/mcp",
+  "tests/unit/mcp_agent/cli",
+  "tests/unit/mcp_agent/mcp_agent/fixture",
+  "tests/unit/mcp_agent/mcp_agent/test_event_progress.py",
+  "tests/unit/mcp_agent/agents/test_agent_types.py",
+  "tests/unit/mcp_agent/agents/workflow",
+  "tests/unit/mcp_agent/core/test_mcp_content.py",
+  "tests/unit/mcp_agent/core/test_prompt.py",
+  "tests/unit/mcp_agent/llm/test_playback.py",
+  "tests/unit/mcp_agent/llm/test_model_factory.py",
+  "tests/unit/mcp_agent/llm/test_structured.py",
+  "tests/unit/mcp_agent/llm/test_passthrough.py",
+  "tests/unit/mcp_agent/llm/test_provider_key_manager_hf.py",
+  "tests/unit/mcp_agent/llm/providers",
+  "tests/unit/mcp_agent/llm/test_sampling_converter.py",
+  "tests/unit/mcp_agent/llm/test_prepare_arguments.py",
+  "tests/unit/mcp_agent/mcp/test_resource_utils.py",
+  "tests/unit/mcp_agent/mcp/test_prompt_message_multipart.py",
+  "tests/unit/mcp_agent/mcp/test_hf_auth.py",
+  "tests/unit/mcp_agent/mcp/test_prompt_multipart.py",
+  "tests/unit/mcp_agent/mcp/test_prompt_serialization.py",
+  "tests/unit/mcp_agent/mcp/test_sampling.py",
+  "tests/unit/mcp_agent/mcp/test_prompt_multipart_conversion.py",
+  "tests/unit/mcp_agent/mcp/test_mime_utils.py",
+  "tests/unit/mcp_agent/mcp/prompts",
+  "tests/unit/mcp_agent/mcp/test_prompt_format_utils.py",
+  "tests/unit/mcp_agent/mcp/test_prompt_render.py",
+  "tests/unit/mcp_agent/cli/commands",
+  "tests/unit/mcp_agent/mcp_agent/fixture/README.md",
+  "tests/unit/mcp_agent/mcp_agent/fixture/expected_output.txt",
+  "tests/unit/mcp_agent/mcp_agent/fixture/mcp-basic-agent-2025-02-17.jsonl",
+  "tests/unit/mcp_agent/agents/workflow/test_orchestrator_agent.py",
+  "tests/unit/mcp_agent/agents/workflow/test_router_unit.py",
+  "tests/unit/mcp_agent/llm/providers/test_multipart_converter_anthropic.py",
+  "tests/unit/mcp_agent/llm/providers/test_sampling_converter_anthropic.py",
+  "tests/unit/mcp_agent/llm/providers/test_sampling_converter_openai.py",
+  "tests/unit/mcp_agent/llm/providers/test_multipart_converter_openai.py",
+  "tests/unit/mcp_agent/llm/providers/test_multipart_converter_tensorzero.py",
+  "tests/unit/mcp_agent/llm/providers/test_augmented_llm_azure.py",
+  "tests/unit/mcp_agent/llm/providers/test_augmented_llm_tensorzero_unit.py",
+  "tests/unit/mcp_agent/llm/providers/test_multipart_converter_google.py",
+  "tests/unit/mcp_agent/mcp/prompts/test_template_multipart_integration.py",
+  "tests/unit/mcp_agent/mcp/prompts/test_prompt_template.py",
+  "tests/unit/mcp_agent/mcp/prompts/test_prompt_helpers.py",
+  "tests/unit/mcp_agent/cli/commands/test_url_parser.py",
+  "tests/unit/mcp_agent/cli/commands/test_check_config.py",
+  "tests/unit/mcp_agent/cli/commands/test_check_config_hf.py",
+  "tests/unit/mcp_agent/cli/commands/test_url_parser_hf_auth.py",
+  ".github/workflows/checks.yml",
+  ".github/workflows/pr-checks.yml",
+  ".github/workflows/create-tag.yml",
+  ".github/workflows/main-checks.yml",
+  ".github/workflows/release-drafter.yml",
+  ".github/workflows/publish-pypi.yml",
+  "src/mcp_agent/context_dependent.py",
+  "src/mcp_agent/agents",
+  "src/mcp_agent/tools",
+  "src/mcp_agent/core",
+  "src/mcp_agent/py.typed",
+  "src/mcp_agent/llm",
+  "src/mcp_agent/mcp",
+  "src/mcp_agent/cli",
+  "src/mcp_agent/console.py",
+  "src/mcp_agent/executor",
+  "src/mcp_agent/app.py",
+  "src/mcp_agent/mcp_server_registry.py",
+  "src/mcp_agent/resources",
+  "src/mcp_agent/mcp_server",
+  "src/mcp_agent/human_input",
+  "src/mcp_agent/event_progress.py",
+  "src/mcp_agent/config.py",
+  "src/mcp_agent/progress_display.py",
+  "src/mcp_agent/context.py",
+  "src/mcp_agent/logging",
+  "src/mcp_agent/ui",
+  "src/mcp_agent/__init__.py",
+  "src/mcp_agent/agents/agent.py",
+  "src/mcp_agent/agents/base_agent.py",
+  "src/mcp_agent/agents/workflow",
+  "src/mcp_agent/agents/__init__.py",
+  "src/mcp_agent/tools/tool_definition.py",
+  "src/mcp_agent/core/agent_types.py",
+  "src/mcp_agent/core/request_params.py",
+  "src/mcp_agent/core/interactive_prompt.py",
+  "src/mcp_agent/core/exceptions.py",
+  "src/mcp_agent/core/validation.py",
+  "src/mcp_agent/core/agent_app.py",
+  "src/mcp_agent/core/fastagent.py",
+  "src/mcp_agent/core/enhanced_prompt.py",
+  "src/mcp_agent/core/mcp_content.py",
+  "src/mcp_agent/core/direct_factory.py",
+  "src/mcp_agent/core/prompt.py",
+  "src/mcp_agent/core/direct_decorators.py",
+  "src/mcp_agent/core/error_handling.py",
+  "src/mcp_agent/core/__init__.py",
+  "src/mcp_agent/llm/model_factory.py",
+  "src/mcp_agent/llm/sampling_format_converter.py",
+  "src/mcp_agent/llm/augmented_llm_passthrough.py",
+  "src/mcp_agent/llm/provider_types.py",
+  "src/mcp_agent/llm/augmented_llm_playback.py",
+  "src/mcp_agent/llm/sampling_converter.py",
+  "src/mcp_agent/llm/augmented_llm_slow.py",
+  "src/mcp_agent/llm/provider_key_manager.py",
+  "src/mcp_agent/llm/providers",
+  "src/mcp_agent/llm/prompt_utils.py",
+  "src/mcp_agent/llm/augmented_llm.py",
+  "src/mcp_agent/llm/memory.py",
+  "src/mcp_agent/llm/__init__.py",
+  "src/mcp_agent/mcp/mcp_aggregator.py",
+  "src/mcp_agent/mcp/resource_utils.py",
+  "src/mcp_agent/mcp/mcp_connection_manager.py",
+  "src/mcp_agent/mcp/gen_client.py",
+  "src/mcp_agent/mcp/sampling.py",
+  "src/mcp_agent/mcp/interfaces.py",
+  "src/mcp_agent/mcp/logger_textio.py",
+  "src/mcp_agent/mcp/prompt_render.py",
+  "src/mcp_agent/mcp/helpers",
+  "src/mcp_agent/mcp/prompt_serialization.py",
+  "src/mcp_agent/mcp/common.py",
+  "src/mcp_agent/mcp/prompt_message_multipart.py",
+  "src/mcp_agent/mcp/mime_utils.py",
+  "src/mcp_agent/mcp/prompts",
+  "src/mcp_agent/mcp/hf_auth.py",
+  "src/mcp_agent/mcp/mcp_agent_client_session.py",
+  "src/mcp_agent/mcp/__init__.py",
+  "src/mcp_agent/cli/terminal.py",
+  "src/mcp_agent/cli/commands",
+  "src/mcp_agent/cli/main.py",
+  "src/mcp_agent/cli/__main__.py",
+  "src/mcp_agent/cli/__init__.py",
+  "src/mcp_agent/executor/task_registry.py",
+  "src/mcp_agent/executor/executor.py",
+  "src/mcp_agent/executor/workflow_signal.py",
+  "src/mcp_agent/executor/__init__.py",
+  "src/mcp_agent/resources/examples",
+  "src/mcp_agent/mcp_server/agent_server.py",
+  "src/mcp_agent/mcp_server/__init__.py",
+  "src/mcp_agent/human_input/handler.py",
+  "src/mcp_agent/human_input/types.py",
+  "src/mcp_agent/human_input/__init__.py",
+  "src/mcp_agent/logging/events.py",
+  "src/mcp_agent/logging/rich_progress.py",
+  "src/mcp_agent/logging/transport.py",
+  "src/mcp_agent/logging/logger.py",
+  "src/mcp_agent/logging/json_serializer.py",
+  "src/mcp_agent/logging/listeners.py",
+  "src/mcp_agent/logging/__init__.py",
+  "src/mcp_agent/ui/console_display.py",
+  "src/mcp_agent/agents/workflow/chain_agent.py",
+  "src/mcp_agent/agents/workflow/router_agent.py",
+  "src/mcp_agent/agents/workflow/orchestrator_prompts.py",
+  "src/mcp_agent/agents/workflow/orchestrator_agent.py",
+  "src/mcp_agent/agents/workflow/orchestrator_models.py",
+  "src/mcp_agent/agents/workflow/parallel_agent.py",
+  "src/mcp_agent/agents/workflow/evaluator_optimizer.py",
+  "src/mcp_agent/agents/workflow/__init__.py",
+  "src/mcp_agent/llm/providers/anthropic_utils.py",
+  "src/mcp_agent/llm/providers/sampling_converter_anthropic.py",
+  "src/mcp_agent/llm/providers/README_anth_multipart.md",
+  "src/mcp_agent/llm/providers/google_converter.py",
+  "src/mcp_agent/llm/providers/augmented_llm_deepseek.py",
+  "src/mcp_agent/llm/providers/augmented_llm_azure.py",
+  "src/mcp_agent/llm/providers/augmented_llm_aliyun.py",
+  "src/mcp_agent/llm/providers/augmented_llm_google_native.py",
+  "src/mcp_agent/llm/providers/multipart_converter_anthropic.py",
+  "src/mcp_agent/llm/providers/augmented_llm_openrouter.py",
+  "src/mcp_agent/llm/providers/augmented_llm_generic.py",
+  "src/mcp_agent/llm/providers/augmented_llm_tensorzero.py",
+  "src/mcp_agent/llm/providers/augmented_llm_openai.py",
+  "src/mcp_agent/llm/providers/multipart_converter_tensorzero.py",
+  "src/mcp_agent/llm/providers/openai_utils.py",
+  "src/mcp_agent/llm/providers/augmented_llm_google_oai.py",
+  "src/mcp_agent/llm/providers/openai_multipart.py",
+  "src/mcp_agent/llm/providers/sampling_converter_openai.py",
+  "src/mcp_agent/llm/providers/augmented_llm_anthropic.py",
+  "src/mcp_agent/llm/providers/multipart_converter_openai.py",
+  "src/mcp_agent/llm/providers/__init__.py",
+  "src/mcp_agent/mcp/helpers/server_config_helpers.py",
+  "src/mcp_agent/mcp/helpers/content_helpers.py",
+  "src/mcp_agent/mcp/helpers/__init__.py",
+  "src/mcp_agent/mcp/prompts/prompt_template.py",
+  "src/mcp_agent/mcp/prompts/prompt_helpers.py",
+  "src/mcp_agent/mcp/prompts/prompt_constants.py",
+  "src/mcp_agent/mcp/prompts/prompt_server.py",
+  "src/mcp_agent/mcp/prompts/prompt_load.py",
+  "src/mcp_agent/mcp/prompts/__main__.py",
+  "src/mcp_agent/mcp/prompts/__init__.py",
+  "src/mcp_agent/cli/commands/go.py",
+  "src/mcp_agent/cli/commands/quickstart.py",
+  "src/mcp_agent/cli/commands/setup.py",
+  "src/mcp_agent/cli/commands/README.md",
+  "src/mcp_agent/cli/commands/url_parser.py",
+  "src/mcp_agent/cli/commands/check_config.py",
+  "src/mcp_agent/resources/examples/in_dev",
+  "src/mcp_agent/resources/examples/internal",
+  "src/mcp_agent/resources/examples/mcp",
+  "src/mcp_agent/resources/examples/researcher",
+  "src/mcp_agent/resources/examples/data-analysis",
+  "src/mcp_agent/resources/examples/prompting",
+  "src/mcp_agent/resources/examples/workflows",
+  "src/mcp_agent/resources/examples/in_dev/css-LICENSE.txt",
+  "src/mcp_agent/resources/examples/in_dev/schema.css",
+  "src/mcp_agent/resources/examples/in_dev/agent_build.py",
+  "src/mcp_agent/resources/examples/in_dev/slides.py",
+  "src/mcp_agent/resources/examples/in_dev/slides.md",
+  "src/mcp_agent/resources/examples/in_dev/structure.css",
+  "src/mcp_agent/resources/examples/in_dev/freud.css",
+  "src/mcp_agent/resources/examples/internal/job.py",
+  "src/mcp_agent/resources/examples/internal/agent.py",
+  "src/mcp_agent/resources/examples/internal/sizer.py",
+  "src/mcp_agent/resources/examples/internal/simple.txt",
+  "src/mcp_agent/resources/examples/internal/history_transfer.py",
+  "src/mcp_agent/resources/examples/internal/social.py",
+  "src/mcp_agent/resources/examples/internal/prompt_category.py",
+  "src/mcp_agent/resources/examples/internal/fastagent.config.yaml",
+  "src/mcp_agent/resources/examples/internal/prompt_sizing.py",
+  "src/mcp_agent/resources/examples/mcp/state-transfer",
+  "src/mcp_agent/resources/examples/researcher/researcher.py",
+  "src/mcp_agent/resources/examples/researcher/researcher-imp.py",
+  "src/mcp_agent/resources/examples/researcher/fastagent.config.yaml",
+  "src/mcp_agent/resources/examples/researcher/researcher-eval.py",
+  "src/mcp_agent/resources/examples/data-analysis/analysis.py",
+  "src/mcp_agent/resources/examples/data-analysis/analysis-campaign.py",
+  "src/mcp_agent/resources/examples/data-analysis/mount-point",
+  "src/mcp_agent/resources/examples/data-analysis/fastagent.config.yaml",
+  "src/mcp_agent/resources/examples/prompting/test.exe",
+  "src/mcp_agent/resources/examples/prompting/work_with_image.py",
+  "src/mcp_agent/resources/examples/prompting/long_chat.md",
+  "src/mcp_agent/resources/examples/prompting/2025-03-19_FLUX_1-schnell-infer_Image_dff80.webp",
+  "src/mcp_agent/resources/examples/prompting/image.png",
+  "src/mcp_agent/resources/examples/prompting/agent.py",
+  "src/mcp_agent/resources/examples/prompting/pdf_prompt.md",
+  "src/mcp_agent/resources/examples/prompting/persist.md",
+  "src/mcp_agent/resources/examples/prompting/prompt2.md",
+  "src/mcp_agent/resources/examples/prompting/sample.css",
+  "src/mcp_agent/resources/examples/prompting/foo.md",
+  "src/mcp_agent/resources/examples/prompting/resource-exe.md",
+  "src/mcp_agent/resources/examples/prompting/resource.md",
+  "src/mcp_agent/resources/examples/prompting/sizing.md",
+  "src/mcp_agent/resources/examples/prompting/fastagent.config.yaml",
+  "src/mcp_agent/resources/examples/prompting/delimited_prompt.txt",
+  "src/mcp_agent/resources/examples/prompting/testingagain.md",
+  "src/mcp_agent/resources/examples/prompting/sample.pdf",
+  "src/mcp_agent/resources/examples/prompting/image.jpg",
+  "src/mcp_agent/resources/examples/prompting/prompt1.txt",
+  "src/mcp_agent/resources/examples/prompting/image_server.py",
+  "src/mcp_agent/resources/examples/prompting/__init__.py",
+  "src/mcp_agent/resources/examples/workflows/evaluator.py",
+  "src/mcp_agent/resources/examples/workflows/parallel.py",
+  "src/mcp_agent/resources/examples/workflows/short_story.md",
+  "src/mcp_agent/resources/examples/workflows/orchestrator.py",
+  "src/mcp_agent/resources/examples/workflows/human_input.py",
+  "src/mcp_agent/resources/examples/workflows/short_story.txt",
+  "src/mcp_agent/resources/examples/workflows/fastagent.config.yaml",
+  "src/mcp_agent/resources/examples/workflows/chaining.py",
+  "src/mcp_agent/resources/examples/workflows/router.py",
+  "src/mcp_agent/resources/examples/workflows/graded_report.md",
+  "src/mcp_agent/resources/examples/mcp/state-transfer/fastagent.secrets.yaml.example",
+  "src/mcp_agent/resources/examples/mcp/state-transfer/fastagent.config.yaml",
+  "src/mcp_agent/resources/examples/mcp/state-transfer/agent_two.py",
+  "src/mcp_agent/resources/examples/mcp/state-transfer/agent_one.py",
+  "src/mcp_agent/resources/examples/data-analysis/mount-point/WA_Fn-UseC_-HR-Employee-Attrition.csv",
+  "examples/azure-openai/fastagent.config.yaml",
+  "examples/mcp/vision-examples",
+  "examples/mcp/state-transfer",
+  "examples/researcher/researcher.py",
+  "examples/researcher/researcher-imp.py",
+  "examples/researcher/fastagent.config.yaml",
+  "examples/researcher/researcher-eval.py",
+  "examples/data-analysis/analysis.py",
+  "examples/data-analysis/analysis-campaign.py",
+  "examples/data-analysis/mount-point",
+  "examples/data-analysis/fastagent.config.yaml",
+  "examples/tensorzero/demo_images",
+  "examples/tensorzero/agent.py",
+  "examples/tensorzero/simple_agent.py",
+  "examples/tensorzero/README.md",
+  "examples/tensorzero/mcp_server",
+  "examples/tensorzero/fastagent.config.yaml",
+  "examples/tensorzero/image_demo.py",
+  "examples/tensorzero/.env.sample",
+  "examples/tensorzero/tensorzero_config",
+  "examples/tensorzero/Makefile",
+  "examples/tensorzero/docker-compose.yml",
+  "examples/otel/docker-compose.yaml",
+  "examples/otel/agent2.py",
+  "examples/otel/agent.py",
+  "examples/otel/fastagent.config.yaml",
+  "examples/workflows/evaluator.py",
+  "examples/workflows/parallel.py",
+  "examples/workflows/short_story.md",
+  "examples/workflows/orchestrator.py",
+  "examples/workflows/human_input.py",
+  "examples/workflows/short_story.txt",
+  "examples/workflows/fastagent.config.yaml",
+  "examples/workflows/chaining.py",
+  "examples/workflows/router.py",
+  "examples/workflows/graded_report.md",
+  "examples/mcp/vision-examples/example3.py",
+  "examples/mcp/vision-examples/example2.py",
+  "examples/mcp/vision-examples/cat.png",
+  "examples/mcp/vision-examples/example1.py",
+  "examples/mcp/vision-examples/fastagent.config.yaml",
+  "examples/mcp/state-transfer/fastagent.config.yaml",
+  "examples/mcp/state-transfer/agent_two.py",
+  "examples/mcp/state-transfer/agent_one.py",
+  "examples/data-analysis/mount-point/WA_Fn-UseC_-HR-Employee-Attrition.csv",
+  "examples/tensorzero/demo_images/shrimp.png",
+  "examples/tensorzero/demo_images/clam.jpg",
+  "examples/tensorzero/demo_images/crab.png",
+  "examples/tensorzero/mcp_server/mcp_server.py",
+  "examples/tensorzero/mcp_server/Dockerfile",
+  "examples/tensorzero/mcp_server/entrypoint.sh",
+  "examples/tensorzero/tensorzero_config/system_template.minijinja",
+  "examples/tensorzero/tensorzero_config/tensorzero.toml",
+  "examples/tensorzero/tensorzero_config/system_schema.json"
 ]

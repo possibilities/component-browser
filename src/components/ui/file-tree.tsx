@@ -6,14 +6,8 @@ import { useEffect, useState } from 'react'
 import { ChevronRight, File, Folder } from 'lucide-react'
 import { Checkbox } from '@/components/ui/checkbox'
 
-type FileItem = {
-  path: string
-  is_dir: boolean
-  selected?: boolean
-}
-
 type FileTreeProps = {
-  files: FileItem[]
+  files: string[]
   selectedFiles: string[]
   expandedFiles: string[]
   onSelectionChange: (addedFiles: string[], removedFiles: string[]) => void
@@ -24,7 +18,8 @@ type FileTreeProps = {
 }
 
 type TreeNode = {
-  item: FileItem
+  path: string
+  isDir: boolean
   children: TreeNode[]
   parent: TreeNode | null
   selected: boolean
@@ -56,8 +51,8 @@ function updateSelectionsRecursively(node: TreeNode): {
 
 function sortNodesFoldersFirst(node: TreeNode) {
   node.children.sort((a, b) => {
-    if (a.item.is_dir && !b.item.is_dir) return -1
-    if (!a.item.is_dir && b.item.is_dir) return 1
+    if (a.isDir && !b.isDir) return -1
+    if (!a.isDir && b.isDir) return 1
 
     return 0
   })
@@ -65,12 +60,10 @@ function sortNodesFoldersFirst(node: TreeNode) {
   node.children.forEach(sortNodesFoldersFirst)
 }
 
-function buildTree(files: FileItem[], selectedFiles: string[]) {
+function buildTree(files: string[], selectedFiles: string[]) {
   const root: TreeNode = {
-    item: {
-      path: '',
-      is_dir: true,
-    },
+    path: '',
+    isDir: true,
     children: [],
     parent: null,
     selected: false,
@@ -80,41 +73,66 @@ function buildTree(files: FileItem[], selectedFiles: string[]) {
   const nodeMap = new Map<string, TreeNode>()
   nodeMap.set('', root)
 
-  const sortedFiles = [...files].sort((a, b) => {
-    const aDepth = a.path.split('/').length
-    const bDepth = b.path.split('/').length
+  // Create a set of all paths for quick lookup
+  const pathSet = new Set(files)
+
+  // Sort paths by depth to process parent directories first
+  const sortedPaths = [...files].sort((a, b) => {
+    const aDepth = a.split('/').length
+    const bDepth = b.split('/').length
     return aDepth - bDepth
   })
 
-  sortedFiles.forEach(file => {
-    const isSelected = selectedFiles.includes(file.path)
+  sortedPaths.forEach(path => {
+    // Check if this path is a directory by seeing if any other path starts with it
+    const isDir = files.some(
+      otherPath => otherPath !== path && otherPath.startsWith(path + '/'),
+    )
+
+    const isSelected = selectedFiles.includes(path)
 
     const node: TreeNode = {
-      item: { ...file },
+      path,
+      isDir,
       children: [],
       parent: null,
       selected: isSelected,
       indeterminate: false,
     }
-    nodeMap.set(file.path, node)
+    nodeMap.set(path, node)
 
-    if (file.is_dir === false) {
-      const parentPath = file.path.substring(0, file.path.lastIndexOf('/'))
-      const parent = nodeMap.get(parentPath || '')
-      if (parent) {
-        node.parent = parent
-        parent.children.push(node)
-      } else {
-        root.children.push(node)
-      }
+    // Find parent path
+    const segments = path.split('/')
+    segments.pop()
+    const parentPath = segments.join('/')
+
+    const parent = nodeMap.get(parentPath || '')
+    if (parent) {
+      node.parent = parent
+      parent.children.push(node)
     } else {
-      const pathParts = file.path.split('/')
-      pathParts.pop()
-      const parentPath = pathParts.join('/')
-      const parent = nodeMap.get(parentPath || '')
-      if (parent) {
-        node.parent = parent
-        parent.children.push(node)
+      // If parent doesn't exist yet, create intermediate directories
+      let currentPath = ''
+      for (let i = 0; i < segments.length; i++) {
+        currentPath = segments.slice(0, i + 1).join('/')
+        if (!nodeMap.has(currentPath)) {
+          const intermediateNode: TreeNode = {
+            path: currentPath,
+            isDir: true,
+            children: [],
+            parent: nodeMap.get(segments.slice(0, i).join('/') || '') || root,
+            selected: false,
+            indeterminate: false,
+          }
+          nodeMap.set(currentPath, intermediateNode)
+          intermediateNode.parent!.children.push(intermediateNode)
+        }
+      }
+
+      const directParent = nodeMap.get(parentPath)
+      if (directParent) {
+        node.parent = directParent
+        directParent.children.push(node)
       } else {
         root.children.push(node)
       }
@@ -188,8 +206,8 @@ export function FileTree({
   const getSelectedFiles = (node: TreeNode): string[] => {
     let selectedFiles: string[] = []
 
-    if (node.item.path && node.selected && !node.item.is_dir) {
-      selectedFiles.push(node.item.path)
+    if (node.path && node.selected && !node.isDir) {
+      selectedFiles.push(node.path)
     }
 
     node.children.forEach(child => {
@@ -210,7 +228,7 @@ export function FileTree({
   }
 
   const renderNode = (node: TreeNode, level = 0) => {
-    if (!node.item.path && level === 0) {
+    if (!node.path && level === 0) {
       return (
         <div className='space-y-1'>
           {node.children.map(child => renderNode(child, level))}
@@ -218,12 +236,10 @@ export function FileTree({
       )
     }
 
-    const isExpanded = node.item.is_dir
-      ? expandedFiles.includes(node.item.path)
-      : false
+    const isExpanded = node.isDir ? expandedFiles.includes(node.path) : false
 
     return (
-      <div key={node.item.path} className='select-none'>
+      <div key={node.path} className='select-none'>
         <div
           className={
             'flex items-center py-1 px-1 rounded-md outline-none max-w-full'
@@ -231,12 +247,12 @@ export function FileTree({
           tabIndex={0}
         >
           <div className='w-5 mr-1 flex-shrink-0 flex items-center justify-center'>
-            {node.item.is_dir && (
+            {node.isDir && (
               <button
                 type='button'
                 className='w-5 h-5 flex items-center justify-center text-muted-foreground outline-none focus:outline-none'
-                aria-label={`Toggle ${getNameFromPath(node.item.path)}`}
-                onClick={e => toggleFolderExpansion(node.item.path, e)}
+                aria-label={`Toggle ${getNameFromPath(node.path)}`}
+                onClick={e => toggleFolderExpansion(node.path, e)}
               >
                 {node.children.length > 0 ? (
                   <ChevronRight
@@ -258,16 +274,16 @@ export function FileTree({
               />
             </div>
 
-            {node.item.is_dir ? (
+            {node.isDir ? (
               <Folder className='h-4 w-4 flex-shrink-0 text-muted-foreground' />
             ) : (
               <File className='h-4 w-4 flex-shrink-0 text-muted-foreground' />
             )}
-            <span className='truncate'>{getNameFromPath(node.item.path)}</span>
+            <span className='truncate'>{getNameFromPath(node.path)}</span>
           </div>
         </div>
 
-        {node.item.is_dir && node.children.length > 0 && isExpanded && (
+        {node.isDir && node.children.length > 0 && isExpanded && (
           <div className='ml-4.75 space-y-1'>
             {node.children.map(child => renderNode(child, level + 1))}
           </div>
