@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "component-browser",
+  "homepage": "http://localhost:3000",
+  "items": [
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "A customizable checkbox component with support for indeterminate state.",
+      "files": [
+        {
+          "path": "registry/default/checkbox/checkbox.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "file-tree",
+      "type": "registry:ui", 
+      "title": "File Tree",
+      "description": "A hierarchical file tree component with checkbox selection and folder expansion.",
+      "files": [
+        {
+          "path": "registry/default/file-tree/file-tree.tsx",
+          "type": "registry:component"
+        }
+      ]
+    }
+  ]
+}

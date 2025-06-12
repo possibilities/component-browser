@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { FileTree } from '@/components/ui/file-tree'
+import { FileTree } from '@/registry/default/file-tree/file-tree'
 import { ThemeToggle } from '@/components/theme-toggle'
 import {
   Breadcrumb,

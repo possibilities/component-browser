@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "type": "registry:ui",
+  "title": "Checkbox",
+  "description": "A customizable checkbox component with support for indeterminate state.",
+  "dependencies": [
+    "lucide-react",
+    "clsx",
+    "tailwind-merge"
+  ],
+  "registryDependencies": [],
+  "files": [
+    {
+      "path": "components/ui/checkbox.tsx",
+      "content": "'use client'\n\nimport { Check } from 'lucide-react'\nimport { cn } from '@/lib/utils'\n\ntype CheckboxProps = {\n  checked: boolean\n  indeterminate?: boolean\n  onChange?: () => void\n  className?: string\n}\n\nexport function Checkbox({\n  checked,\n  indeterminate = false,\n  onChange,\n  className,\n}: CheckboxProps) {\n  return (\n    <div\n      className={cn(\n        'w-4 h-4 min-w-[16px] min-h-[16px] border rounded-sm flex items-center justify-center outline-none cursor-pointer',\n        checked || indeterminate\n          ? 'bg-primary border-primary'\n          : 'border-input bg-background',\n        !checked && !indeterminate && 'hover:bg-muted',\n        className,\n      )}\n      onClick={onChange}\n    >\n      {checked && !indeterminate && (\n        <Check className='h-3 w-3 text-primary-foreground' />\n      )}\n      {indeterminate && <div className='w-2 h-px bg-primary-foreground' />}\n    </div>\n  )\n}",
+      "type": "registry:component",
+      "target": ""
+    },
+    {
+      "path": "lib/utils.ts",
+      "content": "import { clsx, type ClassValue } from 'clsx'\nimport { twMerge } from 'tailwind-merge'\n\nexport function cn(...inputs: ClassValue[]) {\n  return twMerge(clsx(inputs))\n}",
+      "type": "registry:lib",
+      "target": ""
+    }
+  ],
+  "tailwind": {
+    "config": {}
+  },
+  "cssVars": {}
+}
