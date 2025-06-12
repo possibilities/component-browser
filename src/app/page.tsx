@@ -1,76 +1,19 @@
-'use client'
-
-import { useState } from 'react'
-import { FileTree } from '@/components/file-tree'
-import { ThemeToggle } from '@/components/theme-toggle'
-import testFiles from '@/data/test-files.json'
+import Link from 'next/link'
 
 export default function Home() {
-  const [selectedFiles, setSelectedFiles] = useState<string[]>([])
-  const [expandedFiles, setExpandedFiles] = useState<string[]>([])
-
-  const handleSelectionChange = (
-    addedFiles: string[],
-    removedFiles: string[],
-  ) => {
-    setSelectedFiles(prevSelected => {
-      const newSelected = [...prevSelected]
-
-      removedFiles.forEach(file => {
-        const index = newSelected.indexOf(file)
-        if (index > -1) {
-          newSelected.splice(index, 1)
-        }
-      })
-
-      addedFiles.forEach(file => {
-        if (!newSelected.includes(file)) {
-          newSelected.push(file)
-        }
-      })
-
-      return newSelected
-    })
-  }
-
-  const handleExpansionChange = (
-    expandedFilesParam: string[],
-    contractedFiles: string[],
-  ) => {
-    setExpandedFiles(prevExpanded => {
-      const newExpanded = [...prevExpanded]
-
-      contractedFiles.forEach(file => {
-        const index = newExpanded.indexOf(file)
-        if (index > -1) {
-          newExpanded.splice(index, 1)
-        }
-      })
-
-      expandedFilesParam.forEach(file => {
-        if (!newExpanded.includes(file)) {
-          newExpanded.push(file)
-        }
-      })
-
-      return newExpanded
-    })
-  }
-
   return (
-    <div className='h-screen w-full flex flex-col'>
-      <header className='flex items-center justify-between px-6 py-4 border-b'>
-        <h1 className='text-2xl font-semibold'>File Tree</h1>
-        <ThemeToggle />
-      </header>
-      <div className='flex-1 overflow-y-auto overflow-x-clip p-3'>
-        <FileTree
-          files={testFiles}
-          selectedFiles={selectedFiles}
-          expandedFiles={expandedFiles}
-          onSelectionChange={handleSelectionChange}
-          onExpansionChange={handleExpansionChange}
-        />
+    <div className='h-screen w-full flex items-center justify-center'>
+      <div className='text-center'>
+        <h1 className='text-4xl font-bold mb-4'>Context Composer</h1>
+        <p className='text-lg text-muted-foreground mb-8'>
+          A tool for composing context for AI
+        </p>
+        <Link
+          href='/file-tree'
+          className='inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90'
+        >
+          Open File Tree
+        </Link>
       </div>
     </div>
   )
