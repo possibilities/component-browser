@@ -11,7 +11,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
-import testFiles from '@/data/test-files.json'
+import fileTreeData from '@/data/file-tree.json'
 
 export default function Home() {
   const [selectedFiles, setSelectedFiles] = useState<string[]>([])
@@ -84,7 +84,7 @@ export default function Home() {
       <div className='flex-1 overflow-y-auto p-6'>
         <div className='max-w-md mx-auto'>
           <FileTree
-            files={testFiles}
+            files={fileTreeData}
             selectedFiles={selectedFiles}
             expandedFiles={expandedFiles}
             onSelectionChange={handleSelectionChange}
