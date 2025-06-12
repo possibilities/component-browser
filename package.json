@@ -1,7 +1,7 @@
 {
   "name": "component-browser",
   "version": "0.1.0",
-  "description": "Arthack Component Library",
+  "description": "ArtHack Component Library",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "npm run registry:build && next build",

@@ -4,8 +4,8 @@ import './globals.css'
 import './debug.css'
 
 export const metadata: Metadata = {
-  title: 'Component Browser',
-  description: 'Arthack Component Library',
+  title: 'ArtHack UI',
+  description: 'ArtHack Component Library',
 }
 
 export default function RootLayout({
