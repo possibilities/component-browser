@@ -73,10 +73,8 @@ function buildTree(files: string[], selectedFiles: string[]) {
   const nodeMap = new Map<string, TreeNode>()
   nodeMap.set('', root)
 
-  // Create a set of all paths for quick lookup
   const pathSet = new Set(files)
 
-  // Sort paths by depth to process parent directories first
   const sortedPaths = [...files].sort((a, b) => {
     const aDepth = a.split('/').length
     const bDepth = b.split('/').length
@@ -84,7 +82,6 @@ function buildTree(files: string[], selectedFiles: string[]) {
   })
 
   sortedPaths.forEach(path => {
-    // Check if this path is a directory by seeing if any other path starts with it
     const isDir = files.some(
       otherPath => otherPath !== path && otherPath.startsWith(path + '/'),
     )
@@ -101,7 +98,6 @@ function buildTree(files: string[], selectedFiles: string[]) {
     }
     nodeMap.set(path, node)
 
-    // Find parent path
     const segments = path.split('/')
     segments.pop()
     const parentPath = segments.join('/')
@@ -111,7 +107,6 @@ function buildTree(files: string[], selectedFiles: string[]) {
       node.parent = parent
       parent.children.push(node)
     } else {
-      // If parent doesn't exist yet, create intermediate directories
       let currentPath = ''
       for (let i = 0; i < segments.length; i++) {
         currentPath = segments.slice(0, i + 1).join('/')
