@@ -1,5 +1,5 @@
 - nvim-listen
-- pnpm dev --port 4091
+- pnpm dev
 - pnpm types:watch
 - pnpm lint:watch
 - run-prompt work-on-ui
