@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { FolderTree, CheckSquare } from 'lucide-react'
-import { ThemeToggle } from '@/components/theme-toggle'
 
 const components = [
   {
@@ -21,10 +20,10 @@ export default function Home() {
   return (
     <div className='h-screen w-full flex items-center justify-center p-6'>
       <div className='w-full max-w-2xl'>
-        <div className='text-center mb-12'>
-          <h1 className='text-4xl font-bold mb-4'>Component Browser</h1>
+        <div className='text-center mb-6'>
+          <h1 className='text-4xl font-bold mb-4'>Arthack UI</h1>
           <p className='text-lg text-muted-foreground'>
-            Arthack Component Library
+            some components that make me happy
           </p>
         </div>
         <div className='flex flex-col gap-3'>
@@ -53,9 +52,6 @@ export default function Home() {
               </Link>
             )
           })}
-        </div>
-        <div className='mt-8 flex justify-center'>
-          <ThemeToggle />
         </div>
       </div>
     </div>
