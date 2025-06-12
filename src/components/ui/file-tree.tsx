@@ -9,8 +9,6 @@ import { Checkbox } from '@/components/ui/checkbox'
 type FileItem = {
   path: string
   is_dir: boolean
-  name: string
-  size: number
   selected?: boolean
 }
 
@@ -31,6 +29,12 @@ type TreeNode = {
   parent: TreeNode | null
   selected: boolean
   indeterminate: boolean
+}
+
+function getNameFromPath(path: string): string {
+  if (!path) return 'root'
+  const segments = path.split('/')
+  return segments[segments.length - 1]
 }
 
 function updateSelectionsRecursively(node: TreeNode): {
@@ -66,8 +70,6 @@ function buildTree(files: FileItem[], selectedFiles: string[]) {
     item: {
       path: '',
       is_dir: true,
-      name: 'root',
-      size: 0,
     },
     children: [],
     parent: null,
@@ -233,7 +235,7 @@ export function FileTree({
               <button
                 type='button'
                 className='w-5 h-5 flex items-center justify-center text-muted-foreground outline-none focus:outline-none'
-                aria-label={`Toggle ${node.item.name}`}
+                aria-label={`Toggle ${getNameFromPath(node.item.path)}`}
                 onClick={e => toggleFolderExpansion(node.item.path, e)}
               >
                 {node.children.length > 0 ? (
@@ -261,7 +263,7 @@ export function FileTree({
             ) : (
               <File className='h-4 w-4 flex-shrink-0 text-muted-foreground' />
             )}
-            <span className='truncate'>{node.item.name}</span>
+            <span className='truncate'>{getNameFromPath(node.item.path)}</span>
           </div>
         </div>
 
