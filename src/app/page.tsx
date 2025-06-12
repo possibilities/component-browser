@@ -1,6 +1,7 @@
 'use server'
 
 import { FileTree } from '@/components/file-tree'
+import { ThemeToggle } from '@/components/theme-toggle'
 import { exec } from 'child_process'
 import { promisify } from 'util'
 
@@ -58,13 +59,19 @@ export default async function Home() {
   const files = await getFileTree('https://github.com/possibilities/dotfiles')
 
   return (
-    <div className='h-screen w-full overflow-y-auto overflow-x-clip p-3'>
-      <FileTree
-        files={files}
-        selectedFiles={[]}
-        onSelectionChange={handleSelectionChange}
-        onExpansionChange={handleExpansionChange}
-      />
+    <div className='h-screen w-full flex flex-col'>
+      <header className='flex items-center justify-between px-6 py-4 border-b'>
+        <h1 className='text-2xl font-semibold'>File Tree</h1>
+        <ThemeToggle />
+      </header>
+      <div className='flex-1 overflow-y-auto overflow-x-clip p-3'>
+        <FileTree
+          files={files}
+          selectedFiles={[]}
+          onSelectionChange={handleSelectionChange}
+          onExpansionChange={handleExpansionChange}
+        />
+      </div>
     </div>
   )
 }
