@@ -17,6 +17,7 @@ type FileItem = {
 type FileTreeProps = {
   files: FileItem[]
   selectedFiles: string[]
+  expandedFiles: string[]
   onSelectionChange: (addedFiles: string[], removedFiles: string[]) => void
   onExpansionChange: (
     expandedFiles: string[],
@@ -139,11 +140,11 @@ function buildTree(files: FileItem[], selectedFiles: string[]) {
 export function FileTree({
   files,
   selectedFiles,
+  expandedFiles,
   onSelectionChange,
   onExpansionChange,
 }: FileTreeProps) {
   const [tree, setTree] = useState<TreeNode | null>(null)
-  const [expandedFolders, setExpandedFolders] = useState<Set<string>>(new Set())
 
   // Build tree from flat file list and apply selection state
   useEffect(() => {
@@ -229,33 +230,12 @@ export function FileTree({
   const toggleFolderExpansion = (path: string, e: React.MouseEvent) => {
     e.stopPropagation() // Prevent triggering checkbox toggle
 
-    const newExpandedFolders = new Set(expandedFolders)
-    const currentExpanded = Array.from(expandedFolders)
-
-    if (newExpandedFolders.has(path)) {
-      newExpandedFolders.delete(path)
+    if (expandedFiles.includes(path)) {
+      // Contract the folder
+      onExpansionChange([], [path])
     } else {
-      newExpandedFolders.add(path)
-    }
-
-    setExpandedFolders(newExpandedFolders)
-
-    // Call onExpansionChange with added and removed folders
-    const nextExpanded = Array.from(newExpandedFolders)
-
-    // Find newly expanded folders (present in next but not in previous)
-    const expandedFiles = nextExpanded.filter(
-      path => !currentExpanded.includes(path),
-    )
-
-    // Find newly contracted folders (present in previous but not in next)
-    const contractedFiles = currentExpanded.filter(
-      path => !nextExpanded.includes(path),
-    )
-
-    // Only call if there are changes
-    if (expandedFiles.length > 0 || contractedFiles.length > 0) {
-      onExpansionChange(expandedFiles, contractedFiles)
+      // Expand the folder
+      onExpansionChange([path], [])
     }
   }
 
@@ -271,7 +251,7 @@ export function FileTree({
     }
 
     const isExpanded = node.item.is_dir
-      ? expandedFolders.has(node.item.path)
+      ? expandedFiles.includes(node.item.path)
       : false
 
     return (
