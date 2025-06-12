@@ -50,15 +50,15 @@ function updateSelectionsRecursively(node: TreeNode): {
   return { selected: selectedCount, total: totalCount }
 }
 
-function sortNodesAlphabetically(node: TreeNode) {
+function sortNodesFoldersFirst(node: TreeNode) {
   node.children.sort((a, b) => {
     if (a.item.is_dir && !b.item.is_dir) return -1
     if (!a.item.is_dir && b.item.is_dir) return 1
 
-    return a.item.name.localeCompare(b.item.name)
+    return 0
   })
 
-  node.children.forEach(sortNodesAlphabetically)
+  node.children.forEach(sortNodesFoldersFirst)
 }
 
 function buildTree(files: FileItem[], selectedFiles: string[]) {
@@ -134,7 +134,7 @@ export function FileTree({
   useEffect(() => {
     const tree = buildTree(files, selectedFiles)
     updateSelectionsRecursively(tree)
-    sortNodesAlphabetically(tree)
+    sortNodesFoldersFirst(tree)
     setTree(tree)
   }, [files, selectedFiles])
 
