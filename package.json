@@ -4,14 +4,20 @@
   "description": "Arthack Component Library",
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "npm run registry:build && next build",
     "start": "next start",
     "lint": "next lint",
     "types": "tsc --noEmit",
     "types:watch": "tsc --noEmit --watch",
     "lint:watch": "nodemon --watch src --ext js,mjs,jsx,ts,tsx,json,md,mdx,css,yml,yaml --exec \"next lint\"",
     "format": "prettier --write \"*.{js,mjs,ts,json,md,mdx,yml,yaml}\" \"src/**/*.{js,mjs,jsx,ts,tsx,json,md,mdx,css,yml,yaml}\"",
-    "get-test-files": "node scripts/get-test-files.js"
+    "registry:build": "npx shadcn@canary build",
+    "deploy": "npx vercel",
+    "deploy:prod": "npx vercel --prod",
+    "deploy:preview": "npx vercel",
+    "predeploy": "npm run registry:build",
+    "predeploy:prod": "npm run registry:build",
+    "predeploy:preview": "npm run registry:build"
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "^2.1.14",
