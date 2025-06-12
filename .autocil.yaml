@@ -2,4 +2,4 @@
 - pnpm dev
 - pnpm types:watch
 - pnpm lint:watch
-- run-prompt nextjs-development-component-library
+- run-prompt work-on-ui-component-library
