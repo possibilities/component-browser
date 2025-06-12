@@ -2,10 +2,7 @@
 
 import { FileTree } from '@/components/file-tree'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { exec } from 'child_process'
-import { promisify } from 'util'
-
-const execAsync = promisify(exec)
+import testFiles from '@/data/test-files.json'
 
 async function handleSelectionChange(
   addedFiles: string[],
@@ -25,38 +22,8 @@ async function handleExpansionChange(
   console.log('Contracted files:', contractedFiles)
 }
 
-class Repository {
-  constructor(public pathOrUrl: string) {}
-
-  async getFileTree() {
-    try {
-      const { stdout } = await execAsync(`kit get-file-tree ${this.pathOrUrl}`)
-      return JSON.parse(stdout)
-    } catch (error) {
-      console.error('Error getting file tree:', error)
-      return []
-    }
-  }
-}
-
-async function createRepository(pathOrUrl: string) {
-  await execAsync(`kit create-repository ${pathOrUrl}`)
-  return new Repository(pathOrUrl)
-}
-
-async function getFileTree(pathOrUrl: string) {
-  try {
-    const repository = await createRepository(pathOrUrl)
-    const fileTree = await repository.getFileTree()
-    return fileTree
-  } catch (error) {
-    console.error('Error getting file tree:', error)
-    return []
-  }
-}
-
 export default async function Home() {
-  const files = await getFileTree('https://github.com/possibilities/dotfiles')
+  const files = testFiles
 
   return (
     <div className='h-screen w-full flex flex-col'>
