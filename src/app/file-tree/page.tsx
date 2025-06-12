@@ -63,14 +63,16 @@ export default function Home() {
         <h1 className='text-2xl font-semibold'>File Tree</h1>
         <ThemeToggle />
       </header>
-      <div className='flex-1 overflow-y-auto overflow-x-clip p-3'>
-        <FileTree
-          files={testFiles}
-          selectedFiles={selectedFiles}
-          expandedFiles={expandedFiles}
-          onSelectionChange={handleSelectionChange}
-          onExpansionChange={handleExpansionChange}
-        />
+      <div className='flex-1 overflow-y-auto p-6'>
+        <div className='max-w-md mx-auto'>
+          <FileTree
+            files={testFiles}
+            selectedFiles={selectedFiles}
+            expandedFiles={expandedFiles}
+            onSelectionChange={handleSelectionChange}
+            onExpansionChange={handleExpansionChange}
+          />
+        </div>
       </div>
     </div>
   )

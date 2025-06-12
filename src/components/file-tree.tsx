@@ -3,8 +3,8 @@
 import type React from 'react'
 
 import { useEffect, useState } from 'react'
-import { Check, ChevronRight, File, Folder } from 'lucide-react'
-import { cn } from '@/lib/utils'
+import { ChevronRight, File, Folder } from 'lucide-react'
+import { CheckboxWithIndeterminate } from '@/components/checkbox-with-indeterminate'
 
 type FileItem = {
   path: string
@@ -248,27 +248,12 @@ export function FileTree({
           </div>
 
           <div className='flex items-center gap-3'>
-            <div
-              className='w-5 flex-shrink-0 flex justify-center'
-              onClick={() => toggleNode(node)}
-            >
-              <div
-                className={cn(
-                  'w-4 h-4 min-w-[16px] min-h-[16px] border rounded-sm flex items-center justify-center outline-none',
-                  node.selected
-                    ? 'bg-primary border-primary'
-                    : 'border-input bg-background',
-                  node.selected || 'hover:bg-muted',
-                  node.indeterminate && 'bg-primary border-primary',
-                )}
-              >
-                {node.selected && !node.indeterminate && (
-                  <Check className='h-3 w-3 text-primary-foreground' />
-                )}
-                {node.indeterminate && (
-                  <div className='w-2 h-px bg-primary-foreground' />
-                )}
-              </div>
+            <div className='w-5 flex-shrink-0 flex justify-center'>
+              <CheckboxWithIndeterminate
+                checked={node.selected}
+                indeterminate={node.indeterminate}
+                onChange={() => toggleNode(node)}
+              />
             </div>
 
             {node.item.is_dir ? (

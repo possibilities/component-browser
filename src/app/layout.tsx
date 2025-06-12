@@ -4,8 +4,8 @@ import './globals.css'
 import './debug.css'
 
 export const metadata: Metadata = {
-  title: 'Context Composer',
-  description: 'A tool for composing context for AI',
+  title: 'Component Browser',
+  description: 'Arthack Component Library',
 }
 
 export default function RootLayout({

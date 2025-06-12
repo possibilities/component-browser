@@ -1,7 +1,7 @@
 {
-  "name": "context-composer",
+  "name": "component-browser",
   "version": "0.1.0",
-  "description": "A tool for composing context for AI",
+  "description": "Arthack Component Library",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
