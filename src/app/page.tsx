@@ -7,6 +7,7 @@ import testFiles from '@/data/test-files.json'
 
 export default function Home() {
   const [selectedFiles, setSelectedFiles] = useState<string[]>([])
+  const [expandedFiles, setExpandedFiles] = useState<string[]>([])
 
   const handleSelectionChange = (
     addedFiles: string[],
@@ -36,11 +37,30 @@ export default function Home() {
   }
 
   const handleExpansionChange = (
-    expandedFiles: string[],
+    expandedFilesParam: string[],
     contractedFiles: string[],
   ) => {
-    console.log('Expanded files:', expandedFiles)
+    console.log('Expanded files:', expandedFilesParam)
     console.log('Contracted files:', contractedFiles)
+
+    setExpandedFiles(prevExpanded => {
+      const newExpanded = [...prevExpanded]
+
+      contractedFiles.forEach(file => {
+        const index = newExpanded.indexOf(file)
+        if (index > -1) {
+          newExpanded.splice(index, 1)
+        }
+      })
+
+      expandedFilesParam.forEach(file => {
+        if (!newExpanded.includes(file)) {
+          newExpanded.push(file)
+        }
+      })
+
+      return newExpanded
+    })
   }
 
   return (
@@ -53,6 +73,7 @@ export default function Home() {
         <FileTree
           files={testFiles}
           selectedFiles={selectedFiles}
+          expandedFiles={expandedFiles}
           onSelectionChange={handleSelectionChange}
           onExpansionChange={handleExpansionChange}
         />
