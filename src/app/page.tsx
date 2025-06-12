@@ -23,7 +23,7 @@ export default function Home() {
         <div className='text-center mb-6'>
           <h1 className='text-4xl font-bold mb-4'>Arthack UI</h1>
           <p className='text-lg text-muted-foreground'>
-            some components that make me happy
+            <i>&gt; some components that make me happy</i>
           </p>
         </div>
         <div className='flex flex-col gap-3'>
