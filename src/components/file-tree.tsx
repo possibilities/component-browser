@@ -33,40 +33,31 @@ type TreeNode = {
   indeterminate: boolean
 }
 
-// Update node states (selected and indeterminate)
 function updateSelectionsRecursively(node: TreeNode): {
   selected: number
   total: number
 } {
   if (node.children.length === 0) {
-    // Leaf node
     return { selected: node.selected ? 1 : 0, total: 1 }
   }
 
-  // Process children first (use named function for recursion)
   const counts = node.children.map(updateSelectionsRecursively)
   const selectedCount = counts.reduce((sum, count) => sum + count.selected, 0)
   const totalCount = counts.reduce((sum, count) => sum + count.total, 0)
 
-  // Update this node's state
   node.selected = selectedCount === totalCount && totalCount > 0
   node.indeterminate = selectedCount > 0 && selectedCount < totalCount
   return { selected: selectedCount, total: totalCount }
 }
 
-// Sort children alphabetically for each node
 function sortNodesAlphabetically(node: TreeNode) {
-  // Sort directories first, then files, both alphabetically by name
   node.children.sort((a, b) => {
-    // If one is a directory and the other is not, directories come first
     if (a.item.is_dir && !b.item.is_dir) return -1
     if (!a.item.is_dir && b.item.is_dir) return 1
 
-    // Otherwise sort alphabetically by name
     return a.item.name.localeCompare(b.item.name)
   })
 
-  // Recursively sort children
   node.children.forEach(sortNodesAlphabetically)
 }
 
@@ -87,16 +78,13 @@ function buildTree(files: FileItem[], selectedFiles: string[]) {
   const nodeMap = new Map<string, TreeNode>()
   nodeMap.set('', root)
 
-  // Sort files to ensure parents come before children
   const sortedFiles = [...files].sort((a, b) => {
     const aDepth = a.path.split('/').length
     const bDepth = b.path.split('/').length
     return aDepth - bDepth
   })
 
-  // Create nodes for each file
   sortedFiles.forEach(file => {
-    // Check if file is selected based on selectedFiles prop
     const isSelected = selectedFiles.includes(file.path)
 
     const node: TreeNode = {
@@ -108,9 +96,7 @@ function buildTree(files: FileItem[], selectedFiles: string[]) {
     }
     nodeMap.set(file.path, node)
 
-    // Find parent
     if (file.is_dir === false) {
-      // For files, parent is the directory containing it
       const parentPath = file.path.substring(0, file.path.lastIndexOf('/'))
       const parent = nodeMap.get(parentPath || '')
       if (parent) {
@@ -120,9 +106,8 @@ function buildTree(files: FileItem[], selectedFiles: string[]) {
         root.children.push(node)
       }
     } else {
-      // For directories, parent is the directory containing it
       const pathParts = file.path.split('/')
-      pathParts.pop() // Remove the directory name itself
+      pathParts.pop()
       const parentPath = pathParts.join('/')
       const parent = nodeMap.get(parentPath || '')
       if (parent) {
@@ -146,7 +131,6 @@ export function FileTree({
 }: FileTreeProps) {
   const [tree, setTree] = useState<TreeNode | null>(null)
 
-  // Build tree from flat file list and apply selection state
   useEffect(() => {
     const tree = buildTree(files, selectedFiles)
     updateSelectionsRecursively(tree)
@@ -154,12 +138,9 @@ export function FileTree({
     setTree(tree)
   }, [files, selectedFiles])
 
-  // Toggle selection of a node
   const toggleNode = (node: TreeNode) => {
-    // When a node is in indeterminate state, always deselect it
     const newSelected = node.indeterminate ? false : !node.selected
 
-    // Update this node and all its children
     const updateSelection = (n: TreeNode) => {
       n.selected = newSelected
       n.indeterminate = false
@@ -168,7 +149,6 @@ export function FileTree({
 
     updateSelection(node)
 
-    // Update parents
     let parent = node.parent
     while (parent) {
       const childStats = parent.children.reduce(
@@ -186,39 +166,30 @@ export function FileTree({
       parent = parent.parent
     }
 
-    // Create a new tree to trigger re-render
     setTree({ ...tree! })
 
-    // Call onSelectionChange with added and removed files
     const currentSelectedFiles = getSelectedFiles(tree!)
 
-    // Compare with the input selectedFiles prop
-    // Find newly added files (present in current but not in input)
     const addedFiles = currentSelectedFiles.filter(
       path => !selectedFiles.includes(path),
     )
 
-    // Find newly removed files (present in input but not in current)
     const removedFiles = selectedFiles.filter(
       path => !currentSelectedFiles.includes(path),
     )
 
-    // Only call if there are changes
     if (addedFiles.length > 0 || removedFiles.length > 0) {
       onSelectionChange(addedFiles, removedFiles)
     }
   }
 
-  // Get all selected files from the tree
   const getSelectedFiles = (node: TreeNode): string[] => {
     let selectedFiles: string[] = []
 
-    // Only include non-directory items in the selection list
     if (node.item.path && node.selected && !node.item.is_dir) {
       selectedFiles.push(node.item.path)
     }
 
-    // Include selected files from children
     node.children.forEach(child => {
       selectedFiles = selectedFiles.concat(getSelectedFiles(child))
     })
@@ -226,23 +197,18 @@ export function FileTree({
     return selectedFiles
   }
 
-  // Toggle folder expansion
   const toggleFolderExpansion = (path: string, e: React.MouseEvent) => {
-    e.stopPropagation() // Prevent triggering checkbox toggle
+    e.stopPropagation()
 
     if (expandedFiles.includes(path)) {
-      // Contract the folder
       onExpansionChange([], [path])
     } else {
-      // Expand the folder
       onExpansionChange([path], [])
     }
   }
 
-  // Render a node and its children
   const renderNode = (node: TreeNode, level = 0) => {
     if (!node.item.path && level === 0) {
-      // Root node, just render children
       return (
         <div className='space-y-1'>
           {node.children.map(child => renderNode(child, level))}
@@ -262,7 +228,6 @@ export function FileTree({
           }
           tabIndex={0}
         >
-          {/* Caret - fixed width */}
           <div className='w-5 mr-1 flex-shrink-0 flex items-center justify-center'>
             {node.item.is_dir && (
               <button
@@ -284,7 +249,6 @@ export function FileTree({
             )}
           </div>
 
-          {/* Checkbox - fixed width/height */}
           <div className='flex items-center gap-3'>
             <div
               className='w-5 flex-shrink-0 flex justify-center'
@@ -309,7 +273,6 @@ export function FileTree({
               </div>
             </div>
 
-            {/* Icon and filename in one row */}
             {node.item.is_dir ? (
               <Folder className='h-4 w-4 flex-shrink-0 text-muted-foreground' />
             ) : (
