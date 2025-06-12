@@ -238,9 +238,7 @@ export function FileTree({
               >
                 {node.children.length > 0 ? (
                   <ChevronRight
-                    className={`h-4 w-4 transition-transform duration-200 ${
-                      isExpanded ? 'rotate-90' : ''
-                    }`}
+                    className={`h-4 w-4 ${isExpanded ? 'rotate-90' : ''}`}
                   />
                 ) : (
                   <ChevronRight className='h-4 w-4 opacity-0' />
