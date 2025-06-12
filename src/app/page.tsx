@@ -1,29 +1,47 @@
-'use server'
+'use client'
 
+import { useState } from 'react'
 import { FileTree } from '@/components/file-tree'
 import { ThemeToggle } from '@/components/theme-toggle'
 import testFiles from '@/data/test-files.json'
 
-async function handleSelectionChange(
-  addedFiles: string[],
-  removedFiles: string[],
-) {
-  'use server'
-  console.log('Added files:', addedFiles)
-  console.log('Removed files:', removedFiles)
-}
+export default function Home() {
+  const [selectedFiles, setSelectedFiles] = useState<string[]>([])
 
-async function handleExpansionChange(
-  expandedFiles: string[],
-  contractedFiles: string[],
-) {
-  'use server'
-  console.log('Expanded files:', expandedFiles)
-  console.log('Contracted files:', contractedFiles)
-}
+  const handleSelectionChange = (
+    addedFiles: string[],
+    removedFiles: string[],
+  ) => {
+    console.log('Added files:', addedFiles)
+    console.log('Removed files:', removedFiles)
 
-export default async function Home() {
-  const files = testFiles
+    setSelectedFiles(prevSelected => {
+      const newSelected = [...prevSelected]
+
+      removedFiles.forEach(file => {
+        const index = newSelected.indexOf(file)
+        if (index > -1) {
+          newSelected.splice(index, 1)
+        }
+      })
+
+      addedFiles.forEach(file => {
+        if (!newSelected.includes(file)) {
+          newSelected.push(file)
+        }
+      })
+
+      return newSelected
+    })
+  }
+
+  const handleExpansionChange = (
+    expandedFiles: string[],
+    contractedFiles: string[],
+  ) => {
+    console.log('Expanded files:', expandedFiles)
+    console.log('Contracted files:', contractedFiles)
+  }
 
   return (
     <div className='h-screen w-full flex flex-col'>
@@ -33,8 +51,8 @@ export default async function Home() {
       </header>
       <div className='flex-1 overflow-y-auto overflow-x-clip p-3'>
         <FileTree
-          files={files}
-          selectedFiles={[]}
+          files={testFiles}
+          selectedFiles={selectedFiles}
           onSelectionChange={handleSelectionChange}
           onExpansionChange={handleExpansionChange}
         />
