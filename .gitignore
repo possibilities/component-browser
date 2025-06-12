@@ -4,3 +4,5 @@
 .env*
 *.tsbuildinfo
 next-env.d.ts
+.vercel
+public/r/

@@ -1,25 +1,32 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "component-browser",
-  "homepage": "http://localhost:3000",
+  "homepage": "https://components.arthack.io",
   "items": [
     {
       "name": "checkbox",
       "type": "registry:ui",
       "title": "Checkbox",
       "description": "A customizable checkbox component with support for indeterminate state.",
+      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
       "files": [
         {
           "path": "registry/default/checkbox/checkbox.tsx",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/default/lib/utils.ts",
+          "type": "registry:lib"
         }
       ]
     },
     {
       "name": "file-tree",
-      "type": "registry:ui", 
+      "type": "registry:ui",
       "title": "File Tree",
       "description": "A hierarchical file tree component with checkbox selection and folder expansion.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["checkbox"],
       "files": [
         {
           "path": "registry/default/file-tree/file-tree.tsx",
