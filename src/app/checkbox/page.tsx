@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { CheckboxWithIndeterminate } from '@/components/checkbox-with-indeterminate'
+import { Checkbox } from '@/components/ui/checkbox'
 import { ThemeToggle } from '@/components/theme-toggle'
 
 export default function CheckboxDemo() {
@@ -40,18 +40,15 @@ export default function CheckboxDemo() {
             <h2 className='text-lg font-medium'>Basic States</h2>
             <div className='space-y-3'>
               <div className='flex items-center gap-3'>
-                <CheckboxWithIndeterminate checked={false} />
+                <Checkbox checked={false} />
                 <span>Unchecked</span>
               </div>
               <div className='flex items-center gap-3'>
-                <CheckboxWithIndeterminate checked={true} />
+                <Checkbox checked={true} />
                 <span>Checked</span>
               </div>
               <div className='flex items-center gap-3'>
-                <CheckboxWithIndeterminate
-                  checked={false}
-                  indeterminate={true}
-                />
+                <Checkbox checked={false} indeterminate={true} />
                 <span>Indeterminate</span>
               </div>
             </div>
@@ -61,7 +58,7 @@ export default function CheckboxDemo() {
             <h2 className='text-lg font-medium'>Interactive Example</h2>
             <div className='space-y-3 border rounded-lg p-4'>
               <div className='flex items-center gap-3 pb-3 border-b'>
-                <CheckboxWithIndeterminate
+                <Checkbox
                   checked={allChecked}
                   indeterminate={indeterminate}
                   onChange={toggleAll}
@@ -70,7 +67,7 @@ export default function CheckboxDemo() {
               </div>
               {items.map(item => (
                 <div key={item.id} className='flex items-center gap-3 ml-6'>
-                  <CheckboxWithIndeterminate
+                  <Checkbox
                     checked={item.checked}
                     onChange={() => toggleItem(item.id)}
                   />

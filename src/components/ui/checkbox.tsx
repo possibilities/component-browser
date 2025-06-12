@@ -3,19 +3,19 @@
 import { Check } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-type CheckboxWithIndeterminateProps = {
+type CheckboxProps = {
   checked: boolean
   indeterminate?: boolean
   onChange?: () => void
   className?: string
 }
 
-export function CheckboxWithIndeterminate({
+export function Checkbox({
   checked,
   indeterminate = false,
   onChange,
   className,
-}: CheckboxWithIndeterminateProps) {
+}: CheckboxProps) {
   return (
     <div
       className={cn(
