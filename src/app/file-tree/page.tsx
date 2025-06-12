@@ -3,6 +3,14 @@
 import { useState } from 'react'
 import { FileTree } from '@/components/ui/file-tree'
 import { ThemeToggle } from '@/components/theme-toggle'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb'
 import testFiles from '@/data/test-files.json'
 
 export default function Home() {
@@ -60,7 +68,17 @@ export default function Home() {
   return (
     <div className='h-screen w-full flex flex-col'>
       <header className='flex items-center justify-between px-6 py-4 border-b'>
-        <h1 className='text-2xl font-semibold'>File Tree</h1>
+        <Breadcrumb>
+          <BreadcrumbList className='text-xl'>
+            <BreadcrumbItem>
+              <BreadcrumbLink href='/'>Library</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>File Tree</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
         <ThemeToggle />
       </header>
       <div className='flex-1 overflow-y-auto p-6'>

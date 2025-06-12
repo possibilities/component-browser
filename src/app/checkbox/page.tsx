@@ -3,6 +3,14 @@
 import { useState } from 'react'
 import { Checkbox } from '@/components/ui/checkbox'
 import { ThemeToggle } from '@/components/theme-toggle'
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb'
 
 export default function CheckboxDemo() {
   const [items, setItems] = useState([
@@ -31,7 +39,17 @@ export default function CheckboxDemo() {
   return (
     <div className='h-screen w-full flex flex-col'>
       <header className='flex items-center justify-between px-6 py-4 border-b'>
-        <h1 className='text-2xl font-semibold'>Checkbox</h1>
+        <Breadcrumb>
+          <BreadcrumbList className='text-xl'>
+            <BreadcrumbItem>
+              <BreadcrumbLink href='/'>Library</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Checkbox</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
         <ThemeToggle />
       </header>
       <div className='flex-1 overflow-y-auto p-6'>
