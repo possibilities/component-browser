@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { FolderTree, CheckSquare } from 'lucide-react'
+import { ThemeToggle } from '@/components/theme-toggle'
 
 const components = [
   {
@@ -52,6 +53,9 @@ export default function Home() {
               </Link>
             )
           })}
+        </div>
+        <div className='mt-8 flex justify-center'>
+          <ThemeToggle />
         </div>
       </div>
     </div>
