@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FolderTree, CheckSquare } from 'lucide-react'
+import { FolderTree, CheckSquare, CircleDot } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { ArtHackIcon } from '@/components/icons/arthack-icon'
 
@@ -15,6 +15,12 @@ const components = [
     title: 'Checkbox',
     description: 'Checkbox with indeterminate state',
     icon: CheckSquare,
+  },
+  {
+    href: '/radio',
+    title: 'Radio',
+    description: 'Radio button with smooth transitions',
+    icon: CircleDot,
   },
 ]
 
