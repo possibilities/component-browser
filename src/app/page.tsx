@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import { FolderTree, CheckSquare, CircleDot } from 'lucide-react'
-import { ThemeToggle } from '@/components/theme-toggle'
+import { FolderTree, CheckSquare, CircleDot, Moon } from 'lucide-react'
+import { ThemeToggle } from '@/registry/default/theme-toggle/theme-toggle'
 import { ArtHackIcon } from '@/components/icons/arthack-icon'
 
 const components = [
@@ -21,6 +21,12 @@ const components = [
     title: 'Radio',
     description: 'Radio button with smooth transitions',
     icon: CircleDot,
+  },
+  {
+    href: '/theme-toggle',
+    title: 'Theme Toggle',
+    description: 'Toggle between light and dark themes',
+    icon: Moon,
   },
 ]
 

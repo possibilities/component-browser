@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { FileTree } from '@/registry/default/file-tree/file-tree'
-import { ThemeToggle } from '@/components/theme-toggle'
+import { ThemeToggle } from '@/registry/default/theme-toggle/theme-toggle'
 import {
   Breadcrumb,
   BreadcrumbItem,

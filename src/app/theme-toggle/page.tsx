@@ -1,6 +1,5 @@
 'use client'
 
-import { Checkbox } from '@/registry/default/checkbox/checkbox'
 import { ThemeToggle } from '@/registry/default/theme-toggle/theme-toggle'
 import {
   Breadcrumb,
@@ -12,7 +11,7 @@ import {
 } from '@/components/ui/breadcrumb'
 import { ArtHackIcon } from '@/components/icons/arthack-icon'
 
-export default function CheckboxDemo() {
+export default function ThemeToggleDemo() {
   return (
     <div className='h-screen w-full flex flex-col'>
       <header className='flex items-center justify-between px-6 py-4 border-b'>
@@ -26,25 +25,19 @@ export default function CheckboxDemo() {
             </BreadcrumbItem>
             <BreadcrumbSeparator />
             <BreadcrumbItem>
-              <BreadcrumbPage>Checkbox</BreadcrumbPage>
+              <BreadcrumbPage>Theme Toggle</BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>
         <ThemeToggle />
       </header>
       <div className='flex-1 overflow-y-auto p-6'>
-        <div className='max-w-md mx-auto space-y-3'>
+        <div className='max-w-md mx-auto space-y-6'>
           <div className='flex items-center gap-3'>
-            <Checkbox checked={false} />
-            <span>Unchecked</span>
-          </div>
-          <div className='flex items-center gap-3'>
-            <Checkbox checked={true} />
-            <span>Checked</span>
-          </div>
-          <div className='flex items-center gap-3'>
-            <Checkbox checked={false} indeterminate={true} />
-            <span>Indeterminate</span>
+            <ThemeToggle />
+            <span className='text-sm text-muted-foreground'>
+              Click to toggle theme
+            </span>
           </div>
         </div>
       </div>
