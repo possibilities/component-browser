@@ -35,23 +35,6 @@
       ]
     },
     {
-      "name": "radio",
-      "type": "registry:ui",
-      "title": "Radio",
-      "description": "A customizable radio button component with smooth transitions.",
-      "dependencies": ["lucide-react", "clsx", "tailwind-merge"],
-      "files": [
-        {
-          "path": "registry/default/radio/radio.tsx",
-          "type": "registry:component"
-        },
-        {
-          "path": "registry/default/lib/utils.ts",
-          "type": "registry:lib"
-        }
-      ]
-    },
-    {
       "name": "theme-toggle",
       "type": "registry:ui",
       "title": "Theme Toggle",
