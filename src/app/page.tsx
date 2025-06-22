@@ -19,7 +19,7 @@ const components = [
   {
     href: '/radio',
     title: 'Radio',
-    description: 'Radio button with smooth transitions',
+    description: 'Radio button that looks nice with our checkbox',
     icon: CircleDot,
   },
   {
