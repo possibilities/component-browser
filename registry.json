@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "component-browser",
-  "homepage": "https://components.arthack.io",
+  "name": "arthack-ui",
+  "homepage": "https://ui.arthack.io",
   "items": [
     {
       "name": "checkbox",

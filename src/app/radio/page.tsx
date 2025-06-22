@@ -12,9 +12,12 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
 import { ArtHackIcon } from '@/components/icons/arthack-icon'
+import { InstallationCode } from '@/components/installation-code'
+import { REGISTRY_URL } from '@/lib/config'
 
 export default function RadioDemo() {
   const [selectedOption, setSelectedOption] = useState('option1')
+  const installCommand = `pnpm dlx shadcn@latest add ${REGISTRY_URL}/registry/radio.json`
 
   const radioOptions = [
     { id: 'option1', label: 'First option' },
@@ -42,40 +45,54 @@ export default function RadioDemo() {
         <ThemeToggle />
       </header>
       <div className='flex-1 overflow-y-auto p-6'>
-        <div className='max-w-md mx-auto space-y-6'>
-          <div className='space-y-3'>
-            <h3 className='text-sm font-medium text-muted-foreground mb-2'>
-              States
-            </h3>
-            <div className='flex items-center gap-3'>
-              <Radio checked={false} />
-              <span>Unchecked</span>
-            </div>
-            <div className='flex items-center gap-3'>
-              <Radio checked={true} />
-              <span>Checked</span>
+        <div className='max-w-2xl mx-auto'>
+          <div className='mb-6'>
+            <h1 className='text-3xl font-bold mb-2'>Radio</h1>
+          </div>
+
+          <div className='mb-12'>
+            <div className='flex items-center justify-center p-16 border rounded-lg bg-card'>
+              <div className='space-y-6'>
+                <div className='space-y-3'>
+                  <h3 className='text-sm font-medium text-muted-foreground mb-2'>
+                    States
+                  </h3>
+                  <div className='flex items-center gap-3'>
+                    <Radio checked={false} />
+                    <span>Unchecked</span>
+                  </div>
+                  <div className='flex items-center gap-3'>
+                    <Radio checked={true} />
+                    <span>Checked</span>
+                  </div>
+                </div>
+
+                <div className='space-y-3'>
+                  <h3 className='text-sm font-medium text-muted-foreground mb-2'>
+                    Radio Group Example
+                  </h3>
+                  {radioOptions.map(option => (
+                    <div key={option.id} className='flex items-center gap-3'>
+                      <Radio
+                        checked={selectedOption === option.id}
+                        onChange={() => setSelectedOption(option.id)}
+                      />
+                      <span
+                        className='cursor-pointer select-none'
+                        onClick={() => setSelectedOption(option.id)}
+                      >
+                        {option.label}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className='space-y-3'>
-            <h3 className='text-sm font-medium text-muted-foreground mb-2'>
-              Radio Group Example
-            </h3>
-            {radioOptions.map(option => (
-              <div key={option.id} className='flex items-center gap-3'>
-                <Radio
-                  checked={selectedOption === option.id}
-                  onChange={() => setSelectedOption(option.id)}
-                />
-                <span
-                  className='cursor-pointer select-none'
-                  onClick={() => setSelectedOption(option.id)}
-                >
-                  {option.label}
-                </span>
-              </div>
-            ))}
-          </div>
+          <section>
+            <InstallationCode command={installCommand} />
+          </section>
         </div>
       </div>
     </div>

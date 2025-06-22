@@ -1,7 +1,7 @@
 {
-  "name": "component-browser",
+  "name": "arthack-ui",
   "version": "0.1.0",
-  "description": "ArtHack Component Library",
+  "description": "Arhack UI",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "npm run registry:build && next build",

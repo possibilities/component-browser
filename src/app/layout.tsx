@@ -5,7 +5,7 @@ import './debug.css'
 
 export const metadata: Metadata = {
   title: 'ArtHack UI',
-  description: 'ArtHack Component Library',
+  description: 'ArtHack UI Components',
 }
 
 export default function RootLayout({
