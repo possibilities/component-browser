@@ -14,7 +14,7 @@ import { InstallationCode } from '@/components/installation-code'
 import { REGISTRY_URL } from '@/lib/config'
 
 export default function ThemeToggleDemo() {
-  const installCommand = `pnpm dlx shadcn@latest add ${REGISTRY_URL}/registry/theme-toggle.json`
+  const installCommand = `pnpm dlx shadcn@latest add ${REGISTRY_URL}/r/theme-toggle.json`
 
   return (
     <div className='h-screen w-full flex flex-col'>

@@ -15,7 +15,7 @@ import { InstallationCode } from '@/components/installation-code'
 import { REGISTRY_URL } from '@/lib/config'
 
 export default function CheckboxDemo() {
-  const installCommand = `pnpm dlx shadcn@latest add ${REGISTRY_URL}/registry/checkbox.json`
+  const installCommand = `pnpm dlx shadcn@latest add ${REGISTRY_URL}/r/checkbox.json`
 
   return (
     <div className='h-screen w-full flex flex-col'>

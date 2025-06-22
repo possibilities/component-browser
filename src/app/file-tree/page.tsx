@@ -19,7 +19,7 @@ import { REGISTRY_URL } from '@/lib/config'
 export default function FileTreeDemo() {
   const [selectedFiles, setSelectedFiles] = useState<string[]>([])
   const [expandedFiles, setExpandedFiles] = useState<string[]>([])
-  const installCommand = `pnpm dlx shadcn@latest add ${REGISTRY_URL}/registry/file-tree.json`
+  const installCommand = `pnpm dlx shadcn@latest add ${REGISTRY_URL}/r/file-tree.json`
 
   const handleSelectionChange = (
     addedFiles: string[],
