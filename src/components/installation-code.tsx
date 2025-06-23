@@ -40,9 +40,9 @@ export function InstallationCode({ command }: InstallationCodeProps) {
           <span className='sr-only'>Copy installation command</span>
         </Button>
       </div>
-      <div className='rounded-lg border bg-zinc-950 p-4'>
+      <div className='rounded-lg border bg-muted p-4'>
         <pre
-          className={`text-sm text-zinc-50 overflow-x-auto ${styles.scrollContainer}`}
+          className={`text-sm text-foreground overflow-x-auto ${styles.scrollContainer}`}
         >
           <code>{command}</code>
         </pre>
