@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "npm run registry:build && next build",
+    "browser:watch": "npx browser-composer start-browser --attach $(basename \"$(pwd)\")",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
